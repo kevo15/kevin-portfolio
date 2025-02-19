@@ -1,7 +1,7 @@
 import Head from "next/head";
-import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
+import { Hero } from "../../components/sections/Hero";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,29 +23,7 @@ export default function Home() {
         <link rel="icon" href="/kevinlogo.PNG" />
       </Head>
       <div className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}>
-        <main className={styles.main}>
-          <h1 className={styles.title}>Welcome to Kevin's Portfolio</h1>
-          <p className={styles.subtitle}>
-            Building scalable and modern web applications with passion.
-          </p>
-          <div className={styles.ctas}>
-            <a
-              className={styles.primary}
-              href="https://github.com/kevo15"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image src="/kevinlogo4.PNG" alt="Personal Logo" width={20} height={20} />
-              View My Work
-            </a>
-            <a
-              href="mailto:k.z.marks15@gmail.com"
-              className={styles.secondary}
-            >
-              Contact Me
-            </a>
-          </div>
-        </main>
+        <Hero />
         <footer className={styles.footer}>
           <p>© {new Date().getFullYear()} Kevin's Portfolio</p>
         </footer>
