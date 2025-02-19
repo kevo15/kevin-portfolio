@@ -43,7 +43,7 @@ export const Hero = () => {
         }}
       >
         <Image
-          src="/headshot.PNG"
+          src="/kevinlogo4.PNG"
           alt="Kevin Marks Logo"
           width={300}
           height={300}
