@@ -9,6 +9,11 @@
   --off-white: #FAFAFA;
   --button-primary-hover: #8B0000;
   --button-secondary-hover: #f8f8f8;
+
+  --background-light: var(--primary-red);
+  --background-dark: var(--dark-red);
+  --foreground-light: var(--off-white);
+  --foreground-dark: var(--soft-gray);
 }
 
 .page {
@@ -20,14 +25,14 @@
   padding: 80px;
   gap: 64px;
   font-family: var(--font-geist-sans);
-  background: linear-gradient(to bottom, var(--off-white), var(--soft-gray));
-  color: var(--deep-gray);
+  background: linear-gradient(to bottom, var(--background-light), var(--background-dark));
+  color: var(--foreground-light);
 }
 
 @media (prefers-color-scheme: dark) {
   .page {
-    background: linear-gradient(to bottom, #121212, #1E1E1E);
-    color: var(--soft-gray);
+    background: linear-gradient(to bottom, var(--background-dark), black);
+    color: var(--foreground-dark);
   }
 }
 
@@ -42,13 +47,13 @@
 .title {
   font-size: 3rem;
   font-weight: bold;
-  color: var(--primary-red);
+  color: var(--foreground-light);
   font-family: 'Poppins', sans-serif;
 }
 
 .subtitle {
   font-size: 1.5rem;
-  color: var(--dark-red);
+  color: var(--foreground-dark);
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
 }
@@ -76,8 +81,8 @@
 }
 
 a.primary {
-  background: var(--primary-red);
-  color: white;
+  background: var(--off-white);
+  color: var(--primary-red);
   font-weight: bold;
   gap: 8px;
 }
@@ -87,8 +92,8 @@ a.primary:hover {
 }
 
 a.secondary {
-  border: 2px solid var(--primary-red);
-  color: var(--primary-red);
+  border: 2px solid var(--off-white);
+  color: var(--off-white);
   background: transparent;
   font-weight: bold;
 }
@@ -110,7 +115,7 @@ a.secondary:hover {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--primary-red);
+  color: var(--off-white);
 }
 
 .footer a:hover {
