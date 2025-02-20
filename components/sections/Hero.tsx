@@ -4,10 +4,8 @@ import React from "react";
 import { Stack, Box, Button, Typography } from "@mui/material";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
 
 export const Hero = () => {
-  const router = useRouter();
 
   return (
     <Stack
@@ -25,7 +23,6 @@ export const Hero = () => {
         gap: "50px",
       }}
     >
-      {/* Logo Section */}
       <Box
         component={motion.div}
         initial={{ opacity: 0, scale: 0.8 }}
@@ -51,8 +48,7 @@ export const Hero = () => {
           priority
         />
       </Box>
-      
-      {/* Text and Button Section */}
+
       <Stack
         component={motion.div}
         initial={{ opacity: 0, x: 50 }}
@@ -99,7 +95,6 @@ export const Hero = () => {
               backgroundColor: "#f0f0f0",
             },
           }}
-          onClick={() => {/*router.push("/cases")*/}}
         >
           VIEW CASE STUDIES
         </Button>

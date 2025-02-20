@@ -1,5 +1,4 @@
 /* Global Styles - Red Themed Professional Portfolio */
-
 :root {
   --primary-red: #B71C1C;
   --dark-red: #9A1212;
@@ -32,6 +31,8 @@ body {
   font-family: var(--font-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
 }
 
 * {
@@ -49,4 +50,30 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.hamburger-btn {
+  position: fixed;
+  top: 10px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1100;
+  transition: left 0.3s ease, font-size 0.3s ease;
+}
+
+.hamburger-btn-open {
+  left: 10px;  
+  font-size: 24px;
+}
+
+.hamburger-btn-closed {
+  left: 30px;
+  top: 20px;  
+  font-size: 30px; 
+}
+
+.hamburger-btn:focus {
+  outline: none;
 }
