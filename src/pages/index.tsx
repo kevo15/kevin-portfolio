@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import { Hero } from "../../components/sections/Hero";
 import { About } from "../../components/sections/About";
+import { Skills } from "../../components/sections/Skills";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,8 +25,11 @@ export default function Home() {
         <link rel="icon" href="/kevinlogo.PNG" />
       </Head>
       <div className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}>
-        <Hero />
-        <About />
+        <main className={styles.main}>
+          <Hero />
+          <Skills />
+          <About />
+        </main>
         <footer className={styles.footer}>
           <p>© {new Date().getFullYear()} Kevin's Portfolio</p>
         </footer>
