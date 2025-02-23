@@ -41,7 +41,7 @@ export const About = () => {
     >
       <Box
         component={motion.img}
-        src="/headshot.png"
+        src="/headshot.PNG"
         alt="Kevin Marks"
         variants={childVariants}
         sx={{
