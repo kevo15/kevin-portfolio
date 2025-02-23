@@ -7,7 +7,7 @@ const SpaceInvaderGame = ({ skillIcon: Icon, skillColor }) => {
   const canvasHeight = 400;
 
   const playerSize = 30;
-  const playerY = canvasHeight - 50; 
+  const playerY = canvasHeight - 50;
   const [playerX, setPlayerX] = useState(canvasWidth / 2 - playerSize / 2);
   const playerSpeed = 10;
 

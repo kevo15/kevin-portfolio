@@ -50,8 +50,12 @@ const MazeGame = ({ skillIcon: Icon, skillColor }) => {
       });
 
       if (neighbors.length > 0) {
-        const { row: nRow, col: nCol, dr, dc } =
-          neighbors[Math.floor(Math.random() * neighbors.length)];
+        const {
+          row: nRow,
+          col: nCol,
+          dr,
+          dc,
+        } = neighbors[Math.floor(Math.random() * neighbors.length)];
         grid[row + dr / 2][col + dc / 2] = 0;
         grid[nRow][nCol] = 0;
         stack.push({ row: nRow, col: nCol });
@@ -84,7 +88,7 @@ const MazeGame = ({ skillIcon: Icon, skillColor }) => {
       exitPos.col * cellSize,
       exitPos.row * cellSize,
       cellSize,
-      cellSize
+      cellSize,
     );
   };
 

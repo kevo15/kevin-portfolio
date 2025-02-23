@@ -3,6 +3,7 @@
 import React from "react";
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export const About = () => {
   const theme = useTheme();
@@ -40,21 +41,33 @@ export const About = () => {
       }}
     >
       <Box
-        component={motion.img}
-        src="/headshot.png"
-        alt="Kevin Marks"
+        component={motion.div}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1, delay: 0.4 }}
+        whileHover={{ scale: 1.1, y: -10 }}
         variants={childVariants}
         sx={{
-          height: isMobile
-            ? { xs: "200px", sm: "300px", md: "400px" }
-            : "640px",
-          width: "auto",
+          width: isMobile ? { xs: "200px", sm: "300px", md: "400px" } : "640px",
+          borderRadius: "8px",
+          overflow: "hidden",
           marginBottom: isMobile ? 3 : 0,
           marginRight: isMobile ? 0 : { md: "50px", lg: "200px" },
-          objectFit: "cover",
-          borderRadius: "8px",
         }}
-      />
+      >
+        <Image
+          src="/headshot.png"
+          alt="Kevin Marks"
+          width={640}
+          height={640}
+          style={{
+            width: "100%",
+            height: "auto",
+            objectFit: "cover",
+          }}
+          priority
+        />
+      </Box>
 
       <Box
         component={motion.div}

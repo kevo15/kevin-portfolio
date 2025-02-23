@@ -9,21 +9,13 @@
   width: 100%;
   margin: 0 auto;
   padding: 0 80px 80px;
-  background: linear-gradient(
-    to bottom,
-    var(--primary-red),
-    var(--dark-red)
-  );
+  background: linear-gradient(to bottom, var(--primary-red), var(--dark-red));
   color: var(--off-white);
 }
 
 @media (prefers-color-scheme: dark) {
   .page {
-    background: linear-gradient(
-      to bottom,
-      var(--dark-red),
-      var(--dark-red)
-    );
+    background: linear-gradient(to bottom, var(--dark-red), var(--dark-red));
     color: var(--soft-gray);
   }
 }
