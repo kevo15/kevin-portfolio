@@ -1,9 +1,10 @@
 import Head from "next/head";
 import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import { Hero } from "../../components/sections/Hero";
-import { About } from "../../components/sections/About";
-import Skills from "../../components/sections/Skills/SkillChoice";
+import React from "react";
+import { Wellness } from "../../../components/sections/Projects/Wellness";
+import { Politimap } from "../../../components/sections/Projects/Politimap";
+// import { Portfolio } from "../../../components/sections/Projects/Portfolio";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,15 +16,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export default function Home() {
+const Project: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Kevin&apos;s Portfolio</title>
-        <meta
-          name="description"
-          content="Welcome to Kevin's professional portfolio"
-        />
+        <title>My Projects</title>
+        <meta name="description" content="Kevin's professional projects" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/kevinlogo.PNG" />
       </Head>
@@ -31,14 +29,18 @@ export default function Home() {
         className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
       >
         <main className={styles.main}>
-          <Hero />
-          <Skills />
-          <About />
+          <section>
+            <Wellness />
+          </section>
+          <section><Politimap /></section>
+          <section>{/* <Portfolio /> */}</section>
         </main>
         <footer className={styles.footer}>
-          <p>© {new Date().getFullYear()} Kevin&apos;s Portfolio</p>
+          <p>© {new Date().getFullYear()} Kevin's Portfolio</p>
         </footer>
       </div>
     </>
   );
-}
+};
+
+export default Project;

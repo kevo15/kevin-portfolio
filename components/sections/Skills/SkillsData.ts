@@ -16,10 +16,10 @@ import {
   SiJira,
   SiNotion,
 } from "react-icons/si";
-import PingPongGame from "../minigames/PingPongGame";
-import MazeGame from "../minigames/MazeGame";
-import FlappyBirdGame from "../minigames/FlappyBirdGame";
-import SpaceInvaderGame from "../minigames/SpaceInvaderGame";
+import PingPongGame from "../../minigames/PingPongGame";
+import MazeGame from "../../minigames/MazeGame";
+import FlappyBirdGame from "../../minigames/FlappyBirdGame";
+import SpaceInvaderGame from "../../minigames/SpaceInvaderGame";
 
 export const icons = [
   {

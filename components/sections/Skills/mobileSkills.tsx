@@ -5,7 +5,7 @@ import { Box, Typography, IconButton } from "@mui/material";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { icons } from "./SkillsData";
-import MazeGame from "../minigames/MazeGame";
+import MazeGame from "../../minigames/MazeGame";
 import { motion, AnimatePresence } from "framer-motion";
 
 const SkillsMobile = () => {
