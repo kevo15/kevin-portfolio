@@ -56,7 +56,7 @@ export const About = () => {
         }}
       >
         <Image
-          src="/headshot.png"
+          src="/headshot.PNG"
           alt="Kevin Marks"
           width={640}
           height={640}

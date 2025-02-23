@@ -102,7 +102,6 @@ export const icons = [
   },
 ];
 
-// Available mini-games
 export const minigames = [
   { component: PingPongGame, name: "Ping Pong" },
   { component: MazeGame, name: "Maze" },
