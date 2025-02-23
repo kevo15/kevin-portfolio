@@ -1,13 +1,13 @@
-/* Home.module.css - Red Themed Professional Portfolio */
+/* Home.module.css - Example Page Container with Red-Themed Gradient */
 
 :root {
-  --primary-red: #B71C1C;
-  --dark-red: #9A1212;
-  --light-red: #D32F2F;
+  --primary-red: #b71c1c;
+  --dark-red: #9a1212;
+  --light-red: #d32f2f;
   --deep-gray: #212121;
-  --soft-gray: #E0E0E0;
-  --off-white: #FAFAFA;
-  --button-primary-hover: #8B0000;
+  --soft-gray: #e0e0e0;
+  --off-white: #fafafa;
+  --button-primary-hover: #8b0000;
   --button-secondary-hover: #f8f8f8;
 
   --background-light: var(--primary-red);
@@ -17,150 +17,36 @@
 }
 
 .page {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  align-items: start;
-  justify-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
   min-height: 100vh;
-  padding: 0 80px 80px; 
-  gap: 32px; 
-  font-family: var(--font-geist-sans);
-  background: linear-gradient(to bottom, var(--background-light), var(--background-dark));
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 80px 80px;
+  background: linear-gradient(
+    to bottom,
+    var(--background-light),
+    var(--background-dark)
+  );
   color: var(--foreground-light);
 }
 
 @media (prefers-color-scheme: dark) {
   .page {
-    background: linear-gradient(to bottom, var(--background-dark), black);
+    background: linear-gradient(
+      to bottom,
+      var(--background-dark),
+      var(--background-dark)
+    );
     color: var(--foreground-dark);
   }
 }
 
-.main {
-  grid-row: 2;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  width: 100%;
-}
-
-.title {
-  font-size: 3rem;
-  font-weight: bold;
-  color: var(--foreground-light);
-  font-family: 'Poppins', sans-serif;
-}
-
-.subtitle {
-  font-size: 1.5rem;
-  color: var(--foreground-dark);
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-}
-
-.ctas {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-}
-
-.ctas a {
-  appearance: none;
-  border-radius: 50px;
-  height: 48px;
-  padding: 0 24px;
-  border: none;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
-  transition: background 0.3s ease, color 0.3s ease;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-a.primary {
-  background: var(--off-white);
-  color: var(--primary-red);
-  font-weight: bold;
-  gap: 8px;
-}
-
-a.primary:hover {
-  background: var(--button-primary-hover);
-}
-
-a.secondary {
-  border: 2px solid var(--off-white);
-  color: var(--off-white);
-  background: transparent;
-  font-weight: bold;
-}
-
-a.secondary:hover {
-  background: var(--button-secondary-hover);
-  color: var(--deep-gray);
-}
-
-.footer {
-  grid-row-start: 3;
-  display: flex;
-  gap: 24px;
-  justify-content: center;
-  font-size: 0.9rem;
-}
-
-.footer a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--off-white);
-}
-
-.footer a:hover {
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
 @media (max-width: 600px) {
   .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
-
-  .main {
-    align-items: center;
-  }
-
-  .title {
-    font-size: 2.5rem;
-  }
-
-  .subtitle {
-    font-size: 1.2rem;
-  }
-
-  .ctas {
-    flex-direction: column;
-  }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
+    padding: 0 20px 40px;
   }
 }

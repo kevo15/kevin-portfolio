@@ -4,23 +4,20 @@ import React, { useRef, useEffect, useState } from "react";
 
 const FlappyBirdGame = ({ skillIcon: Icon, skillColor }) => {
   const canvasRef = useRef(null);
-  
-  // Define constants for canvas and player.
+
   const canvasWidth = 600;
   const canvasHeight = 400;
   const playerSize = 30;
-  const playerSpeed = 3; // Movement increment per frame from arrow keys.
-  
-  // Pipe and hole parameters.
+  const playerSpeed = 3;
+
   const pipeWidth = 60;
   const pipeGap = 150;
   const pipeSpeed = 2;
-  const pipeInterval = 1500; // milliseconds between pipes
+  const pipeInterval = 1500;
   const holeMinWidth = 50;
   const holeMaxWidth = 120;
   const holeSpacing = 300;
 
-  // Game state: track player, pipes, and score.
   const [gameState, setGameState] = useState({
     player: { x: 50, y: 200 },
     pipes: [],
@@ -29,7 +26,6 @@ const FlappyBirdGame = ({ skillIcon: Icon, skillColor }) => {
   const [keysPressed, setKeysPressed] = useState({});
   const [isDragging, setIsDragging] = useState(false);
 
-  // Keyboard input: update keysPressed state (prevent defaults for arrow keys).
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (
@@ -62,7 +58,6 @@ const FlappyBirdGame = ({ skillIcon: Icon, skillColor }) => {
     };
   }, []);
 
-  // Mouse dragging on the canvas.
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -102,31 +97,39 @@ const FlappyBirdGame = ({ skillIcon: Icon, skillColor }) => {
     };
   }, [isDragging, playerSize]);
 
-  // Preload initial pipes and continue generating new pipes.
   useEffect(() => {
     const initialPipes = [];
-    let pos = canvasWidth + 100; // Start a bit off-screen.
+    let pos = canvasWidth + 100;
     while (pos < canvasWidth + 2000) {
-      const gapY = Math.floor(Math.random() * (canvasHeight - pipeGap - 40)) + 20;
+      const gapY =
+        Math.floor(Math.random() * (canvasHeight - pipeGap - 40)) + 20;
       initialPipes.push({ x: pos, gapY, scored: false });
-      // Increment pos based on a random width for the hole and fixed spacing.
-      const width = Math.random() * (holeMaxWidth - holeMinWidth) + holeMinWidth;
+      const width =
+        Math.random() * (holeMaxWidth - holeMinWidth) + holeMinWidth;
       pos += width + holeSpacing;
     }
     setGameState((prev) => ({ ...prev, pipes: initialPipes }));
-    
+
     const pipeTimer = setInterval(() => {
-      const gapY = Math.floor(Math.random() * (canvasHeight - pipeGap - 40)) + 20;
+      const gapY =
+        Math.floor(Math.random() * (canvasHeight - pipeGap - 40)) + 20;
       setGameState((prev) => ({
         ...prev,
         pipes: [...prev.pipes, { x: canvasWidth, gapY, scored: false }],
       }));
     }, pipeInterval);
-    
-    return () => clearInterval(pipeTimer);
-  }, [canvasWidth, canvasHeight, pipeGap, holeMaxWidth, holeMinWidth, holeSpacing, pipeInterval]);
 
-  // Main game loop.
+    return () => clearInterval(pipeTimer);
+  }, [
+    canvasWidth,
+    canvasHeight,
+    pipeGap,
+    holeMaxWidth,
+    holeMinWidth,
+    holeSpacing,
+    pipeInterval,
+  ]);
+
   useEffect(() => {
     let animationFrameId;
     const context = canvasRef.current.getContext("2d");
@@ -134,7 +137,6 @@ const FlappyBirdGame = ({ skillIcon: Icon, skillColor }) => {
     const updateGame = () => {
       setGameState((prev) => {
         let { player, pipes, score } = prev;
-        // Update player position based on keysPressed.
         if (keysPressed["ArrowUp"]) {
           player.y -= playerSpeed;
         }
@@ -147,16 +149,16 @@ const FlappyBirdGame = ({ skillIcon: Icon, skillColor }) => {
         if (keysPressed["ArrowRight"]) {
           player.x += playerSpeed;
         }
-        // Constrain player position.
         player.x = Math.max(0, Math.min(canvasWidth - playerSize, player.x));
-        player.y = Math.max(0, Math.min(canvasHeight - 20 - playerSize, player.y));
+        player.y = Math.max(
+          0,
+          Math.min(canvasHeight - 20 - playerSize, player.y),
+        );
 
-        // Move pipes leftward.
         pipes = pipes
           .map((pipe) => ({ ...pipe, x: pipe.x - pipeSpeed }))
           .filter((pipe) => pipe.x + pipeWidth > 0);
 
-        // Collision detection.
         let collision = false;
         if (
           player.x < 0 ||
@@ -167,16 +169,33 @@ const FlappyBirdGame = ({ skillIcon: Icon, skillColor }) => {
           collision = true;
         }
         pipes.forEach((pipe) => {
-          const playerRect = { x: player.x, y: player.y, width: playerSize, height: playerSize };
-          const upperPipe = { x: pipe.x, y: 0, width: pipeWidth, height: pipe.gapY };
-          const lowerPipe = { x: pipe.x, y: pipe.gapY + pipeGap, width: pipeWidth, height: canvasHeight - pipe.gapY - pipeGap - 20 };
-          if (rectIntersect(playerRect, upperPipe) || rectIntersect(playerRect, lowerPipe)) {
+          const playerRect = {
+            x: player.x,
+            y: player.y,
+            width: playerSize,
+            height: playerSize,
+          };
+          const upperPipe = {
+            x: pipe.x,
+            y: 0,
+            width: pipeWidth,
+            height: pipe.gapY,
+          };
+          const lowerPipe = {
+            x: pipe.x,
+            y: pipe.gapY + pipeGap,
+            width: pipeWidth,
+            height: canvasHeight - pipe.gapY - pipeGap - 20,
+          };
+          if (
+            rectIntersect(playerRect, upperPipe) ||
+            rectIntersect(playerRect, lowerPipe)
+          ) {
             collision = true;
           }
         });
 
         if (collision) {
-          // Reset the game.
           return {
             player: { x: 50, y: 200 },
             pipes: [],
@@ -184,7 +203,6 @@ const FlappyBirdGame = ({ skillIcon: Icon, skillColor }) => {
           };
         }
 
-        // Increase score when a pipe passes the player's x position.
         pipes.forEach((pipe) => {
           if (!pipe.scored && pipe.x + pipeWidth < player.x) {
             pipe.scored = true;
@@ -202,23 +220,29 @@ const FlappyBirdGame = ({ skillIcon: Icon, skillColor }) => {
     const drawGame = () => {
       const { player, pipes, score } = gameState;
       context.clearRect(0, 0, canvasWidth, canvasHeight);
-      
-      // Draw background.
-      context.fillStyle = "#70c5ce"; // Sky blue.
+
+      context.fillStyle = "#70c5ce";
       context.fillRect(0, 0, canvasWidth, canvasHeight);
 
-      // Draw pipes.
       context.fillStyle = "#008000";
       pipes.forEach((pipe) => {
         context.fillRect(pipe.x, 0, pipeWidth, pipe.gapY);
-        context.fillRect(pipe.x, pipe.gapY + pipeGap, pipeWidth, canvasHeight - pipe.gapY - pipeGap - 20);
+        context.fillRect(
+          pipe.x,
+          pipe.gapY + pipeGap,
+          pipeWidth,
+          canvasHeight - pipe.gapY - pipeGap - 20,
+        );
       });
 
-      // Draw ground.
       context.fillStyle = "#ded895";
-      context.fillRect(0, canvasHeight - 20, canvasWidth, canvasHeight - canvasHeight + 20);
+      context.fillRect(
+        0,
+        canvasHeight - 20,
+        canvasWidth,
+        canvasHeight - canvasHeight + 20,
+      );
 
-      // Draw score.
       context.fillStyle = "#fff";
       context.font = "24px sans-serif";
       context.fillText(`Score: ${score}`, 10, 30);
@@ -238,7 +262,9 @@ const FlappyBirdGame = ({ skillIcon: Icon, skillColor }) => {
   }, [gameState, keysPressed]);
 
   return (
-    <div style={{ position: "relative", width: canvasWidth, height: canvasHeight }}>
+    <div
+      style={{ position: "relative", width: canvasWidth, height: canvasHeight }}
+    >
       <canvas
         ref={canvasRef}
         width={canvasWidth}
