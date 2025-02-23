@@ -6,7 +6,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 export const Hero = () => {
-
   return (
     <Stack
       component={motion.div}
@@ -20,7 +19,8 @@ export const Hero = () => {
         justifyContent: "center",
         paddingX: { xs: "20px", sm: "40px", md: "75px" },
         paddingY: { xs: "50px", sm: "75px", md: "150px" },
-        gap: "50px",
+        gap: { xs: "50px", md: "100px" },
+        mx: "auto",
       }}
     >
       <Box
@@ -30,12 +30,7 @@ export const Hero = () => {
         transition={{ duration: 1, delay: 0.4 }}
         whileHover={{ scale: 1.1, y: -10 }}
         sx={{
-          width: { xs: "200px", sm: "250px", md: "300px" },
-          height: { xs: "200px", sm: "250px", md: "300px" },
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          overflow: "hidden",
+          width: { xs: "150px", sm: "200px", md: "300px" },
           borderRadius: "10px",
         }}
       >
@@ -44,7 +39,7 @@ export const Hero = () => {
           alt="Kevin Marks Logo"
           width={300}
           height={300}
-          objectFit="contain"
+          style={{ width: "100%", height: "auto", objectFit: "contain" }}
           priority
         />
       </Box>
@@ -55,9 +50,11 @@ export const Hero = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, delay: 0.6 }}
         sx={{
-          maxWidth: "500px",
+          maxWidth: { xs: "300px", md: "500px" },
+          width: "100%",
           alignItems: "center",
           textAlign: "center",
+          px: { xs: 2, md: 0 },
         }}
       >
         <Typography
@@ -66,6 +63,9 @@ export const Hero = () => {
             color: "white",
             fontWeight: "bold",
             marginBottom: "15px",
+            fontSize: { xs: "1.5rem", md: "2rem" },
+            whiteSpace: "normal",
+            overflowWrap: "break-word",
           }}
         >
           Explore My Case Studies
@@ -75,9 +75,13 @@ export const Hero = () => {
           sx={{
             color: "white",
             marginBottom: "20px",
+            fontSize: { xs: "0.9rem", md: "1rem" },
+            whiteSpace: "normal",
+            overflowWrap: "break-word",
           }}
         >
-          Discover how I build scalable and efficient applications, solve complex problems, and create intuitive user experiences.
+          Discover how I build scalable and efficient applications, solve
+          complex problems, and create intuitive user experiences.
         </Typography>
         <Button
           variant="contained"

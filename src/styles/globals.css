@@ -1,23 +1,24 @@
-/* Global Styles - Red Themed Professional Portfolio */
+/* global.css - Example Global Styles */
+
 :root {
-  --primary-red: #B71C1C;
-  --dark-red: #9A1212;
-  --light-red: #D32F2F;
+  --primary-red: #b71c1c;
+  --dark-red: #9a1212;
+  --light-red: #d32f2f;
   --deep-gray: #212121;
-  --soft-gray: #E0E0E0;
-  --off-white: #FAFAFA;
-  --button-primary-hover: #8B0000;
+  --soft-gray: #e0e0e0;
+  --off-white: #fafafa;
+  --button-primary-hover: #8b0000;
   --button-secondary-hover: #f8f8f8;
 
   --background: var(--off-white);
   --foreground: var(--deep-gray);
-  --font-primary: 'Poppins', sans-serif;
-  --font-secondary: 'Roboto', sans-serif;
+  --font-primary: "Poppins", sans-serif;
+  --font-secondary: "Roboto", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #121212;
+    --background: var(--dark-red);
     --foreground: var(--soft-gray);
   }
 }
@@ -25,14 +26,12 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-primary);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 * {
@@ -60,18 +59,20 @@ a {
   color: #fff;
   cursor: pointer;
   z-index: 1100;
-  transition: left 0.3s ease, font-size 0.3s ease;
+  transition:
+    left 0.3s ease,
+    font-size 0.3s ease;
 }
 
 .hamburger-btn-open {
-  left: 10px;  
+  left: 10px;
   font-size: 24px;
 }
 
 .hamburger-btn-closed {
   left: 30px;
-  top: 20px;  
-  font-size: 30px; 
+  top: 20px;
+  font-size: 30px;
 }
 
 .hamburger-btn:focus {
