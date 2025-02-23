@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { useRouter } from "next/navigation";
-import "../../src/styles/Sidebar.css";
 
 interface SidebarProps {
   isOpen: boolean;

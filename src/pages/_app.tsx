@@ -1,5 +1,5 @@
 import type { AppProps } from "next/app";
-import "../styles/globals.css";
+import "@/styles/globals.css";
 import { useState } from "react";
 import Sidebar from "../../components/Navbar/Sidebar";
 
@@ -11,7 +11,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <button
-        className={`hamburger-btn ${isSidebarOpen ? "hamburger-btn-open" : "hamburger-btn-closed"}`}
+        className={`hamburger-btn ${
+          isSidebarOpen ? "hamburger-btn-open" : "hamburger-btn-closed"
+        }`}
         onClick={toggleSidebar}
       >
         {isSidebarOpen ? "✕" : "☰"}
