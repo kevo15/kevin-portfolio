@@ -4,8 +4,8 @@ import React, { useState } from "react";
 import { Box, Typography, IconButton } from "@mui/material";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import { icons } from "./SkillsData";
-import MazeGame from "../minigames/MazeGame";
+import { icons } from "./SkillsData"; // Only the icons array is needed now
+import MazeGame from "../minigames/MazeGame"; // Import MazeGame directly
 import { motion, AnimatePresence } from "framer-motion";
 
 const SkillsMobile = () => {
