@@ -1,6 +1,6 @@
 /* Home.module.css - Example Page Container with Red-Themed Gradient */
 
-:root {
+:global(:root) {
   --primary-red: #b71c1c;
   --dark-red: #9a1212;
   --light-red: #d32f2f;
