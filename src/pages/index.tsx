@@ -25,7 +25,7 @@ export default function Home() {
           content="Welcome to Kevin's professional portfolio"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/kevinlogo.PNG" />
+        <link rel="icon" href="/me.png" />
       </Head>
       <div
         className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
