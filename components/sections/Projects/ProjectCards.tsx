@@ -8,7 +8,7 @@ interface ProjectCardProps {
   projectLogo: string;
   personalLogo: string;
   projectLink: string;
-  reversed?: boolean; 
+  reversed?: boolean;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -23,45 +23,73 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     <Card
       sx={{
         width: "100%",
-        maxWidth: "1200px", // larger card width
-        p: 6,             // increased padding
-        mb: 6,            // increased margin bottom
+        maxWidth: "1200px",
+        p: "2rem",
+        mb: "2rem",
         display: "flex",
         flexDirection: "column",
-        gap: 4,           // increased gap between sections
-        backgroundColor: "#424242", // grey background matching nav bar
+        gap: "2rem",
+        backgroundColor: "#424242",
         boxShadow: "0 6px 12px rgba(0, 0, 0, 0.2)",
       }}
     >
-      {/* Header Row: Title + Personal Logo */}
       <Stack direction="row" alignItems="center" justifyContent="space-between">
-        <Typography variant="h5" sx={{ fontWeight: "bold", color: "#fff" }}>
-          {projectTitle}
-        </Typography>
-        <Box sx={{ width: 60, height: 60, borderRadius: "50%", overflow: "hidden" }}>
+        <Box
+          sx={{
+            backgroundColor: "#000000",
+            borderRadius: "48px",
+            padding: "10px 20px",
+            mb: "30px",
+            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+            textAlign: "center",
+            display: "inline-block",
+            mx: "auto",
+          }}
+        >
+          <Typography
+            variant="h2"
+            sx={{
+              color: "#FFFFFF",
+              fontWeight: 600,
+              fontSize: { xs: "2.5rem", md: "3.5rem" },
+              m: 0,
+            }}
+          >
+            {projectTitle}
+          </Typography>
+        </Box>
+        <Box
+          sx={{
+            width: "120px",
+            ml: "2rem",
+            borderRadius: "8px",
+            overflow: "hidden",
+          }}
+        >
           <Image
             src={personalLogo}
             alt="Personal Logo"
-            width={60}
-            height={60}
+            width={120}
+            height={120}
             style={{ objectFit: "cover" }}
           />
         </Box>
       </Stack>
 
-      {/* Content Row: Image + Description */}
       <Stack
-        direction={{ xs: "column", md: reversed ? "row-reverse" : "row" }}
+        direction={{
+          xs: "column",
+          md: reversed ? "row-reverse" : "row",
+        }}
         alignItems="center"
-        spacing={3}
+        justifyContent="space-between"
+        spacing={{ xs: 4, md: 0 }}
       >
-        {/* Project Image */}
         <Box
           sx={{
-            width: { xs: "100%", md: "300px" },
-            borderRadius: 2,
-            overflow: "hidden",
-            mx: "auto",
+            flexShrink: 0,
+            maxWidth: "350px",
+            textAlign: "center",
           }}
         >
           <Link
@@ -70,19 +98,29 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             rel="noopener noreferrer"
             underline="none"
           >
-            <Image
-              src={projectLogo}
-              alt={`${projectTitle} Logo`}
-              width={300}    // adjust as needed for your design
-              height={200}   // adjust according to your image ratio
-              style={{ objectFit: "contain" }}
-            />
+            <Box
+              sx={{
+                width: "250px",
+                borderRadius: "8px",
+                overflow: "hidden",
+              }}
+            >
+              <Image
+                src={projectLogo}
+                alt={`${projectTitle} Logo`}
+                width={250}
+                height={200}
+                style={{ objectFit: "contain" }}
+              />
+            </Box>
           </Link>
         </Box>
 
-        {/* Text + Button */}
-        <Stack spacing={2} sx={{ textAlign: "center", flex: 1 }}>
-          <Typography sx={{ color: "#fff" }}>
+        <Stack spacing="50px" sx={{ maxWidth: "500px", textAlign: "center" }}>
+          <Typography
+            component="p"
+            sx={{ fontSize: "1.25rem", lineHeight: 1.6, m: 0, color: "#fff" }}
+          >
             {projectDescription}
           </Typography>
           <Link
@@ -103,7 +141,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               textAlign: "center",
               textDecoration: "none",
               mx: "auto",
-              alignSelf: "center",
               transition: "background-color 0.2s, transform 0.2s",
               "&:hover": {
                 backgroundColor: "#f0f0f0",
