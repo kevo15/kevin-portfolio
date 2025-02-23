@@ -1,47 +1,30 @@
 /* Home.module.css - Example Page Container with Red-Themed Gradient */
 
-:global(:root) {
-  --primary-red: #b71c1c;
-  --dark-red: #9a1212;
-  --light-red: #d32f2f;
-  --deep-gray: #212121;
-  --soft-gray: #e0e0e0;
-  --off-white: #fafafa;
-  --button-primary-hover: #8b0000;
-  --button-secondary-hover: #f8f8f8;
-
-  --background-light: var(--primary-red);
-  --background-dark: var(--dark-red);
-  --foreground-light: var(--off-white);
-  --foreground-dark: var(--soft-gray);
-}
-
 .page {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-
   min-height: 100vh;
   width: 100%;
   margin: 0 auto;
   padding: 0 80px 80px;
   background: linear-gradient(
     to bottom,
-    var(--background-light),
-    var(--background-dark)
+    var(--primary-red),
+    var(--dark-red)
   );
-  color: var(--foreground-light);
+  color: var(--off-white);
 }
 
 @media (prefers-color-scheme: dark) {
   .page {
     background: linear-gradient(
       to bottom,
-      var(--background-dark),
-      var(--background-dark)
+      var(--dark-red),
+      var(--dark-red)
     );
-    color: var(--foreground-dark);
+    color: var(--soft-gray);
   }
 }
 
