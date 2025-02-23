@@ -38,7 +38,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
             <button onClick={handleNavigation("/#skills")}>Skills</button>
           </li>
           <li>
-            <button onClick={handleNavigation("/")}>Projects</button>
+            <button onClick={handleNavigation("/projects/project")}>
+              Projects
+            </button>
           </li>
           <li>
             <button onClick={handleNavigation("/")}>Contact</button>
