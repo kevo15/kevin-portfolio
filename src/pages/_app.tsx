@@ -5,6 +5,7 @@ import { useState } from "react";
 import Sidebar from "../../components/Navbar/Sidebar";
 import FlowingWavesBackground from "../../components/waves";
 import { useRouter } from "next/router";
+import ContactFooter from "../../components/Footer/footer";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -18,7 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       {showWaves && <FlowingWavesBackground />}
-      
+
       <button
         className={`hamburger-btn ${
           isSidebarOpen ? "hamburger-btn-open" : "hamburger-btn-closed"
@@ -39,6 +40,8 @@ function MyApp({ Component, pageProps }: AppProps) {
       >
         <Component {...pageProps} />
       </div>
+
+      <ContactFooter />
     </>
   );
 }

@@ -57,15 +57,12 @@ const CaseStudyCardsPage: React.FC = () => {
           </Typography>
         </Box>
 
-        <main className="main" style={{ maxWidth: "900px", margin: "0 auto", padding: "30px" }}>
+        <main
+          className="main"
+          style={{ maxWidth: "900px", margin: "0 auto", padding: "30px" }}
+        >
           <CaseStudyCards />
         </main>
-
-        <footer className="footer" style={{ textAlign: "center", padding: "20px" }}>
-          <Typography variant="body2">
-            © {new Date().getFullYear()} <span>Kevin&apos;s Portfolio</span>
-          </Typography>
-        </footer>
       </div>
     </>
   );

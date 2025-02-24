@@ -23,12 +23,22 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onNavigate }) => {
     onNavigate();
   };
 
+  const handleContact = () => {
+    const footerElement = document.getElementById("footer");
+    if (footerElement) {
+      footerElement.scrollIntoView({ behavior: "smooth" });
+    }
+    onNavigate();
+  };
+
   return (
     <div className={`sidebar ${isOpen ? "open" : "closed"}`}>
       <nav>
         <ul>
           <li>
-            <button onClick={handleNavigation("/caseStudies")}>Case Studies</button>
+            <button onClick={handleNavigation("/caseStudies")}>
+              Case Studies
+            </button>
           </li>
           <li>
             <button onClick={handleNavigation("/#about")}>About</button>
@@ -45,7 +55,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onNavigate }) => {
             </button>
           </li>
           <li>
-            <button onClick={handleNavigation("/")}>Contact</button>
+            <button onClick={handleContact}>Contact</button>
           </li>
         </ul>
       </nav>
