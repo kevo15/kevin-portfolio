@@ -1,13 +1,9 @@
 import Head from "next/head";
 import React from "react";
 import { Geist, Geist_Mono } from "next/font/google";
-import styles from "@/styles/Home.module.css";
 import { ProjectCard } from "../../../components/sections/Projects/ProjectCards";
-import premierLeafLogo from "../../../public/premierleaf.png";
-import kevinLogo from "../../../public/kevinmarkslogo.png";
-import poltimapLogo from "../../../public/politimap.png";
-import kzlogo from "../../../public/kzlogo.png";
-import personalLogo from "../../../public/me2.png";
+import { projectsData } from "../../../components/sections/Projects/projectData";
+import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,6 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 const ProjectsPage: React.FC = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
     <>
       <Head>
@@ -29,40 +28,81 @@ const ProjectsPage: React.FC = () => {
         <link rel="icon" href="/kevinlogo.PNG" />
       </Head>
 
-      <div
-        className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
-      >
-        <main className={styles.main}>
-          <ProjectCard
-            projectTitle="Premier Leaf Wellness App"
-            projectDescription="The PremierLeaf web application, built collaboratively..."
-            projectLogo={premierLeafLogo.src}
-            personalLogo={kevinLogo.src}
-            projectLink="https://www.premierleaf.com"
-            reversed={false}
-          />
+      <div className={`${geistSans.variable} ${geistMono.variable} page`}>
+        {isMobile ? (
+          <Box
+            sx={{
+              backgroundColor: "#000000",
+              borderRadius: "48px",
+              padding: "8px 16px",
+              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+              textAlign: "center",
+              width: "90%",
+              mx: "auto",
+              mb: 2,
+            }}
+          >
+            <Typography
+              variant="h5"
+              sx={{
+                color: "#FFFFFF",
+                fontWeight: "bold",
+                textTransform: "uppercase",
+                letterSpacing: "4px",
+                fontStyle: "italic",
+                py: 1,
+              }}
+            >
+              Projects
+            </Typography>
+          </Box>
+        ) : (
+          <Box
+            sx={{
+              backgroundColor: "#000000",
+              borderRadius: "48px",
+              padding: "10px 20px",
+              marginBottom: "50px",
+              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+              textAlign: "center",
+              width: "100%",
+              fontStyle: "italic",
+            }}
+          >
+            <Typography
+              variant="h1"
+              sx={{
+                color: "#FFFFFF",
+                fontWeight: "bold",
+                textTransform: "uppercase",
+                letterSpacing: "15px",
+                fontSize: "64px",
+                paddingX: "50px",
+                paddingY: "10px",
+              }}
+            >
+              Projects
+            </Typography>
+          </Box>
+        )}
 
-          <ProjectCard
-            projectTitle="Politimap"
-            projectDescription="Politimap is a React-based app that helps users..."
-            projectLogo={poltimapLogo.src}
-            personalLogo={kzlogo.src}
-            projectLink="https://www.politimap.com"
-            reversed={true}
-          />
-
-          <ProjectCard
-            projectTitle="My Portfolio"
-            projectDescription="The current website you are viewing took a lot of..."
-            projectLogo={personalLogo.src}
-            personalLogo={kevinLogo.src}
-            projectLink="/"
-            reversed={false}
-          />
+        <main className="main">
+          {projectsData.map((project, index) => (
+            <ProjectCard
+              key={index}
+              projectTitle={project.projectTitle}
+              projectDescription={project.projectDescription}
+              projectLogo={project.projectLogo}
+              personalLogo={project.personalLogo}
+              projectLink={project.projectLink}
+              reversed={project.reversed}
+            />
+          ))}
         </main>
 
-        <footer className={styles.footer}>
-          <p>© {new Date().getFullYear()} Kevin's Portfolio</p>
+        <footer className="footer">
+          <p>© {new Date().getFullYear()}<p>Kevin&#39;s Portfolio</p>
+          </p>
         </footer>
       </div>
     </>

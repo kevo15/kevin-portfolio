@@ -2,6 +2,7 @@ import type { AppProps } from "next/app";
 import "@/styles/globals.css";
 import { useState } from "react";
 import Sidebar from "../../components/Navbar/Sidebar";
+import FlowingWavesBackground from "../../components/waves";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -10,6 +11,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
+      <FlowingWavesBackground />
+
       <button
         className={`hamburger-btn ${
           isSidebarOpen ? "hamburger-btn-open" : "hamburger-btn-closed"
@@ -23,9 +26,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
       <div
         style={{
-          marginLeft: isSidebarOpen ? "250px" : "0",
-          transition: "margin-left 0.3s ease",
           padding: "20px",
+          position: "relative",
+          zIndex: 1,
         }}
       >
         <Component {...pageProps} />

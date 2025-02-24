@@ -1,6 +1,6 @@
 import Head from "next/head";
+import React from "react";
 import { Geist, Geist_Mono } from "next/font/google";
-import styles from "@/styles/Home.module.css";
 import { Hero } from "../../components/sections/Hero";
 import { About } from "../../components/sections/About";
 import Skills from "../../components/sections/Skills/SkillChoice";
@@ -22,20 +22,18 @@ export default function Home() {
         <title>Kevin&apos;s Portfolio</title>
         <meta
           name="description"
-          content="Welcome to Kevin's professional portfolio"
+          content="Welcome to Kevin&apos;s professional portfolio"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/kevinlogo.PNG" />
+        <link rel="icon" href="/me.png" />
       </Head>
-      <div
-        className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
-      >
-        <main className={styles.main}>
+      <div className={`${geistSans.variable} ${geistMono.variable} page`}>
+        <main className="main">
           <Hero />
           <Skills />
           <About />
         </main>
-        <footer className={styles.footer}>
+        <footer className="footer">
           <p>© {new Date().getFullYear()} Kevin&apos;s Portfolio</p>
         </footer>
       </div>
