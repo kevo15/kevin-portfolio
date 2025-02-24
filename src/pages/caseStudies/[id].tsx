@@ -1,7 +1,14 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { Box, Typography, Stack, Card, useTheme, useMediaQuery } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Stack,
+  Card,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
 import caseStudies from "../../../components/sections/CaseStudies/caseStudyData";
 
 const CaseStudyDetail: React.FC = () => {
@@ -26,7 +33,8 @@ const CaseStudyDetail: React.FC = () => {
       content: (
         <Box>
           <Typography variant="body1" sx={{ mb: 1, color: "#000" }}>
-            <strong>Mission Statement:</strong> {study.overview.missionStatement}
+            <strong>Mission Statement:</strong>{" "}
+            {study.overview.missionStatement}
           </Typography>
           <Typography variant="body1" sx={{ color: "#000" }}>
             <strong>Target Audience:</strong> {study.overview.targetAudience}
@@ -104,7 +112,10 @@ const CaseStudyDetail: React.FC = () => {
             textAlign: "center",
           }}
         >
-          <Typography variant={isMobile ? "h4" : "h3"} sx={{ color: "#000", m: 0, textAlign: "center" }}>
+          <Typography
+            variant={isMobile ? "h4" : "h3"}
+            sx={{ color: "#000", m: 0, textAlign: "center" }}
+          >
             {study.title}
           </Typography>
         </Box>
@@ -130,7 +141,9 @@ const CaseStudyDetail: React.FC = () => {
               width: "100%",
               p: "20px",
               backgroundColor:
-                index % 2 === 0 ? "rgba(255,255,255,0.8)" : "rgba(211,211,211,0.8)",
+                index % 2 === 0
+                  ? "rgba(255,255,255,0.8)"
+                  : "rgba(211,211,211,0.8)",
               color: "#000",
               borderRadius: "16px",
             }}

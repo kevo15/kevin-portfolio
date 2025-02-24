@@ -99,11 +99,6 @@ const ProjectsPage: React.FC = () => {
             />
           ))}
         </main>
-
-        <footer className="footer">
-          <p>© {new Date().getFullYear()}<p>Kevin&#39;s Portfolio</p>
-          </p>
-        </footer>
       </div>
     </>
   );

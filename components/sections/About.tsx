@@ -53,7 +53,7 @@ export const About = () => {
           width: isMobile ? { xs: "200px", sm: "300px", md: "400px" } : "640px",
           borderRadius: "8px",
           overflow: "hidden",
-          mb: isMobile ? 2 : 0, 
+          mb: isMobile ? 2 : 0,
           mr: isMobile ? 0 : { md: "30px", lg: "80px" },
         }}
       >
@@ -125,10 +125,9 @@ export const About = () => {
           app focusing on self-care prioritization, integrating Google Cloud
           Storage for media management.
           <br />
-          <br />
-          I thrive in fast-paced, collaborative environments and love solving
-          complex technical challenges. Outside of coding, I enjoy working out,
-          gaming, and continuously learning new technologies.
+          <br />I thrive in fast-paced, collaborative environments and love
+          solving complex technical challenges. Outside of coding, I enjoy
+          working out, gaming, and continuously learning new technologies.
         </Typography>
       </Box>
     </Box>
