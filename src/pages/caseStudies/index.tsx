@@ -21,7 +21,7 @@ const CaseStudyCardsPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Case Studies | Kevin's Portfolio</title>
+        <title>Case Studies | Kevin&apos;s Portfolio</title>
         <meta name="description" content="Kevin's case studies" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/kevinlogo.PNG" />
