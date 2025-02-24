@@ -30,7 +30,7 @@ export interface ProjectData {
       projectTitle: "My Portfolio",
       projectDescription:
         "Software Engineering Project – React Portfolio Showcase. Built a responsive React web application with Material-UI to effectively display my projects, skills, and resume. Designed interactive, reusable UI components and optimized user experience across devices.",
-      projectLogo: "/me2.png",
+      projectLogo: "/me.png",
       personalLogo: "/kevinmarkslogo.png",
       projectLink: "/",
       reversed: false,

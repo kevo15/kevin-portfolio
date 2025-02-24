@@ -4,9 +4,10 @@ import { useRouter } from "next/navigation";
 
 interface SidebarProps {
   isOpen: boolean;
+  onNavigate: () => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
+const Sidebar: React.FC<SidebarProps> = ({ isOpen, onNavigate }) => {
   const router = useRouter();
 
   const handleNavigation = (path: string) => () => {
@@ -15,10 +16,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
       const element = document.getElementById(elementId);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
-        return;
       }
+    } else {
+      router.push(path);
     }
-    router.push(path);
+    onNavigate();
   };
 
   return (

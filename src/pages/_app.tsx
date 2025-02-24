@@ -1,3 +1,4 @@
+"use client";
 import type { AppProps } from "next/app";
 import "@/styles/globals.css";
 import { useState } from "react";
@@ -5,9 +6,11 @@ import Sidebar from "../../components/Navbar/Sidebar";
 import FlowingWavesBackground from "../../components/waves";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
+
+  const closeSidebar = () => setIsSidebarOpen(false);
 
   return (
     <>
@@ -22,7 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         {isSidebarOpen ? "✕" : "☰"}
       </button>
 
-      <Sidebar isOpen={isSidebarOpen} />
+      <Sidebar isOpen={isSidebarOpen} onNavigate={closeSidebar} />
 
       <div
         style={{

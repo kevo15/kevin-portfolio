@@ -50,12 +50,8 @@ const MazeGame = ({ skillIcon: Icon, skillColor }) => {
       });
 
       if (neighbors.length > 0) {
-        const {
-          row: nRow,
-          col: nCol,
-          dr,
-          dc,
-        } = neighbors[Math.floor(Math.random() * neighbors.length)];
+        const { row: nRow, col: nCol, dr, dc } =
+          neighbors[Math.floor(Math.random() * neighbors.length)];
         grid[row + dr / 2][col + dc / 2] = 0;
         grid[nRow][nCol] = 0;
         stack.push({ row: nRow, col: nCol });
@@ -88,7 +84,7 @@ const MazeGame = ({ skillIcon: Icon, skillColor }) => {
       exitPos.col * cellSize,
       exitPos.row * cellSize,
       cellSize,
-      cellSize,
+      cellSize
     );
   };
 
@@ -135,6 +131,7 @@ const MazeGame = ({ skillIcon: Icon, skillColor }) => {
   }, [playerPos, maze, exitPos]);
 
   const handleTouchStart = (e) => {
+    e.preventDefault();
     const touch = e.touches[0];
     setIsDragging(true);
     setDragStart({ x: touch.clientX, y: touch.clientY });
@@ -142,6 +139,7 @@ const MazeGame = ({ skillIcon: Icon, skillColor }) => {
   };
 
   const handleTouchMove = (e) => {
+    e.preventDefault();
     if (!isDragging) return;
     const touch = e.touches[0];
     setDragDelta({
@@ -151,10 +149,10 @@ const MazeGame = ({ skillIcon: Icon, skillColor }) => {
   };
 
   const handleTouchEnd = (e) => {
+    e.preventDefault();
     if (!isDragging) return;
     setIsDragging(false);
 
-    const canvasRect = canvasRef.current.getBoundingClientRect();
     const originalX = playerPos.col * cellSize;
     const originalY = playerPos.row * cellSize;
     const dropX = originalX + dragDelta.x;
@@ -204,6 +202,7 @@ const MazeGame = ({ skillIcon: Icon, skillColor }) => {
           pointerEvents: "auto",
           transform: `translate(${dragDelta.x}px, ${dragDelta.y}px)`,
           transition: isDragging ? "none" : "transform 0.2s ease-out",
+          touchAction: "none",
         }}
       >
         <Icon size={cellSize} color={skillColor} />
