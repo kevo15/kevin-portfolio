@@ -1,6 +1,14 @@
 import React from "react";
 import Image from "next/image";
-import { Card, Stack, Typography, Box, Link } from "@mui/material";
+import {
+  Card,
+  Stack,
+  Typography,
+  Box,
+  Link,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
 
 interface ProjectCardProps {
   projectTitle: string;
@@ -19,6 +27,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   projectLink,
   reversed = false,
 }) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
     <Card
       sx={{
@@ -31,20 +42,24 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         gap: "20px",
         backgroundColor: "rgba(66, 66, 66, 0.7)",
         boxShadow: "0 6px 12px rgba(0, 0, 0, 0.2)",
-        ...(reversed ? { ml: "auto" } : { mr: "auto" }),
+        ...(isMobile ? {} : reversed ? { ml: "auto" } : { mr: "auto" }),
       }}
     >
-      <Stack direction="row" alignItems="center" justifyContent="space-between">
+      <Stack
+        direction={isMobile ? "column" : "row"}
+        alignItems="center"
+        justifyContent="center"
+        spacing={isMobile ? 2 : 20}
+      >
         <Box
           sx={{
             backgroundColor: "#000000",
             borderRadius: "48px",
-            padding: "10px 20px",
-            mb: "20px",
+            padding: isMobile ? "6px 12px" : "10px 20px",
+            mb: isMobile ? "10px" : "20px",
             boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
             textAlign: "center",
             display: "inline-block",
-            mx: "auto",
           }}
         >
           <Typography
@@ -52,44 +67,45 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             sx={{
               color: "#FFFFFF",
               fontWeight: 600,
-              fontSize: { xs: "2.5rem", md: "3.5rem" },
+              fontSize: isMobile ? "1.8rem" : "2.8rem",
               m: 0,
+              overflowWrap: "break-word",
             }}
           >
             {projectTitle}
           </Typography>
         </Box>
-        <Box
-          sx={{
-            width: "100px",
-            ml: "20px",
-            borderRadius: "8px",
-            overflow: "hidden",
-          }}
-        >
-          <Image
-            src={personalLogo}
-            alt="Personal Logo"
-            width={100}
-            height={100}
-            style={{ objectFit: "cover" }}
-          />
-        </Box>
+
+        {!isMobile && (
+          <Box
+            sx={{
+              width: isMobile ? "80px" : "120px",
+              borderRadius: "8px",
+              overflow: "hidden",
+              textAlign: "center",
+            }}
+          >
+            <Image
+              src={personalLogo}
+              alt="Personal Logo"
+              width={isMobile ? 80 : 120}
+              height={isMobile ? 80 : 120}
+              style={{ objectFit: "cover" }}
+            />
+          </Box>
+        )}
       </Stack>
 
       <Stack
-        direction={{
-          xs: "column",
-          md: reversed ? "row-reverse" : "row",
-        }}
+        direction={isMobile ? "column" : reversed ? "row-reverse" : "row"}
         alignItems="center"
-        justifyContent="space-between"
-        spacing={{ xs: 3, md: 0 }}
+        justifyContent="center"
+        spacing={isMobile ? 2 : 3}
       >
         <Box
           sx={{
             flexShrink: 0,
-            maxWidth: "400px",
+            maxWidth: isMobile ? "100%" : "300px",
             textAlign: "center",
           }}
         >
@@ -101,7 +117,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           >
             <Box
               sx={{
-                width: "400px",
+                width: isMobile ? "80%" : "300px",
+                margin: "0 auto",
                 borderRadius: "8px",
                 overflow: "hidden",
               }}
@@ -109,25 +126,35 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               <Image
                 src={projectLogo}
                 alt={`${projectTitle} Logo`}
-                width={400}
-                height={300}
-                style={{ objectFit: "contain" }}
+                width={isMobile ? 240 : 300}
+                height={isMobile ? 180 : 225}
+                style={{
+                  objectFit: "contain",
+                  width: "100%",
+                  height: "auto",
+                }}
               />
             </Box>
           </Link>
         </Box>
 
         <Stack
-          spacing="30px"
+          spacing={isMobile ? 2 : 3}
           sx={{
             maxWidth: "500px",
             textAlign: "center",
+            alignItems: "center",
           }}
-          alignItems="center"
         >
           <Typography
             component="p"
-            sx={{ fontSize: "1.25rem", lineHeight: 1.6, m: 0, color: "#fff" }}
+            sx={{
+              fontSize: isMobile ? "1rem" : "1.25rem",
+              lineHeight: 1.6,
+              m: 0,
+              color: "#fff",
+              overflowWrap: "break-word",
+            }}
           >
             {projectDescription}
           </Typography>
@@ -138,13 +165,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             sx={{
               display: "inline-block",
               backgroundColor: "white",
-              width: "180px",
+              width: isMobile ? "140px" : "180px",
               color: "#0A1128",
               fontWeight: "bold",
-              fontSize: "18px",
+              fontSize: isMobile ? "14px" : "18px",
               textTransform: "none",
-              py: "8px",
-              px: "16px",
+              py: isMobile ? "6px" : "8px",
+              px: isMobile ? "12px" : "16px",
               borderRadius: "20px",
               textAlign: "center",
               textDecoration: "none",
