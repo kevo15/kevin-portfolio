@@ -1,4 +1,5 @@
 interface CaseStudy {
+    id: string;
     title: string;
     logo: string;
     overview: {
@@ -16,8 +17,9 @@ interface CaseStudy {
   
   const caseStudies: CaseStudy[] = [
     {
+      id: "0",
       title: "Project Alpha",
-      logo: "assets/logos/alpha-logo.png",
+      logo: "/kevinmarkslogo.png",
       overview: {
         missionStatement: "To revolutionize the way users interact with technology through innovative design.",
         targetAudience: "Tech enthusiasts and early adopters"
@@ -31,8 +33,9 @@ interface CaseStudy {
       conclusion: "Project Alpha successfully demonstrated our capability to deliver innovative and robust solutions."
     },
     {
+      id: "1",
       title: "Project Beta",
-      logo: "assets/logos/beta-logo.png",
+      logo: "/kevinmarkslogo.png",
       overview: {
         missionStatement: "To create an intuitive platform that simplifies complex workflows.",
         targetAudience: "Businesses and enterprise users"
@@ -46,8 +49,9 @@ interface CaseStudy {
       conclusion: "Project Beta underscores our commitment to solving complex business problems with elegant solutions."
     },
     {
+      id: "2",
       title: "Project Gamma",
-      logo: "assets/logos/gamma-logo.png",
+      logo: "/kevinmarkslogo.png",
       overview: {
         missionStatement: "To empower users by providing a seamless, user-friendly application experience.",
         targetAudience: "General consumers seeking efficiency in daily tasks"

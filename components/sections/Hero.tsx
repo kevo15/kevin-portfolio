@@ -1,9 +1,12 @@
 "use client";
 
 import React from "react";
-import { Stack, Box, Button, Typography } from "@mui/material";
+import { Stack, Box, Typography, Button } from "@mui/material";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
+
+const MotionButton = motion(Button);
 
 export const Hero = () => {
   return (
@@ -91,25 +94,26 @@ export const Hero = () => {
             Discover how I build scalable and efficient applications, solve
             complex problems, and create intuitive user experiences.
           </Typography>
-          <Button
-            variant="contained"
-            component={motion.button}
-            whileHover={{ scale: 1.05 }}
-            sx={{
-              backgroundColor: "#000000",
-              color: "#FFFFFF",
-              fontWeight: "bold",
-              fontSize: { xs: "16px", sm: "20px", md: "24px" },
-              textTransform: "none",
-              padding: { xs: "8px 16px", md: "10px 20px" },
-              borderRadius: "20px",
-              "&:hover": {
-                backgroundColor: "#333333",
-              },
-            }}
-          >
-            VIEW CASE STUDIES
-          </Button>
+          <Link href="/caseStudies" passHref legacyBehavior>
+            <MotionButton
+              variant="contained"
+              whileHover={{ scale: 1.05 }}
+              sx={{
+                backgroundColor: "#000000",
+                color: "#FFFFFF",
+                fontWeight: "bold",
+                fontSize: { xs: "16px", sm: "20px", md: "24px" },
+                textTransform: "none",
+                padding: { xs: "8px 16px", md: "10px 20px" },
+                borderRadius: "20px",
+                "&:hover": {
+                  backgroundColor: "#333333",
+                },
+              }}
+            >
+              VIEW CASE STUDIES
+            </MotionButton>
+          </Link>
         </Stack>
       </Box>
     </Stack>
