@@ -31,13 +31,15 @@ export const About = () => {
       initial="hidden"
       animate="visible"
       sx={{
+        backgroundColor: "rgba(255, 255, 255, 0.8)",
+        color: "#000000",
         display: "flex",
         flexDirection: isMobile ? "column" : "row",
         alignItems: "center",
         justifyContent: "center",
-        color: "#ffffff",
-        paddingBottom: "100px",
-        px: { xs: 2, md: 0 },
+        py: { xs: 4, md: 6 },
+        px: { xs: 2, md: 3 },
+        borderRadius: "16px",
       }}
     >
       <Box
@@ -51,8 +53,8 @@ export const About = () => {
           width: isMobile ? { xs: "200px", sm: "300px", md: "400px" } : "640px",
           borderRadius: "8px",
           overflow: "hidden",
-          marginBottom: isMobile ? 3 : 0,
-          marginRight: isMobile ? 0 : { md: "50px", lg: "200px" },
+          mb: isMobile ? 2 : 0, 
+          mr: isMobile ? 0 : { md: "30px", lg: "80px" },
         }}
       >
         <Image
@@ -85,7 +87,7 @@ export const About = () => {
           component={motion.div}
           variants={childVariants}
           sx={{
-            marginBottom: 2,
+            mb: 2,
             fontSize: isMobile
               ? { xs: "28px", sm: "36px", md: "48px" }
               : "64px",
@@ -123,9 +125,10 @@ export const About = () => {
           app focusing on self-care prioritization, integrating Google Cloud
           Storage for media management.
           <br />
-          <br />I thrive in fast-paced, collaborative environments and love
-          solving complex technical challenges. Outside of coding, I enjoy
-          working out, gaming, and continuously learning new technologies.
+          <br />
+          I thrive in fast-paced, collaborative environments and love solving
+          complex technical challenges. Outside of coding, I enjoy working out,
+          gaming, and continuously learning new technologies.
         </Typography>
       </Box>
     </Box>

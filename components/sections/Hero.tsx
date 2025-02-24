@@ -44,65 +44,74 @@ export const Hero = () => {
         />
       </Box>
 
-      <Stack
-        component={motion.div}
-        initial={{ opacity: 0, x: 50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1, delay: 0.6 }}
+      <Box
         sx={{
-          maxWidth: { xs: "300px", md: "500px" },
-          width: "100%",
-          alignItems: "center",
+          backgroundColor: "rgba(255, 255, 255, 0.8)",
+          padding: { xs: "20px", md: "40px" },
+          borderRadius: "20px",
           textAlign: "center",
-          px: { xs: 2, md: 0 },
+          width: "100%",
+          maxWidth: { xs: "300px", md: "500px" },
         }}
       >
-        <Typography
-          variant="h4"
+        <Stack
+          component={motion.div}
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 0.6 }}
           sx={{
-            color: "white",
-            fontWeight: "bold",
-            marginBottom: "15px",
-            fontSize: { xs: "1.5rem", md: "2rem" },
-            whiteSpace: "normal",
-            overflowWrap: "break-word",
+            alignItems: "center",
+            textAlign: "center",
+            px: { xs: 2, md: 0 },
           }}
         >
-          Explore My Case Studies
-        </Typography>
-        <Typography
-          variant="body1"
-          sx={{
-            color: "white",
-            marginBottom: "20px",
-            fontSize: { xs: "0.9rem", md: "1rem" },
-            whiteSpace: "normal",
-            overflowWrap: "break-word",
-          }}
-        >
-          Discover how I build scalable and efficient applications, solve
-          complex problems, and create intuitive user experiences.
-        </Typography>
-        <Button
-          variant="contained"
-          component={motion.button}
-          whileHover={{ scale: 1.05 }}
-          sx={{
-            backgroundColor: "white",
-            color: "#0A1128",
-            fontWeight: "bold",
-            fontSize: { xs: "16px", sm: "20px", md: "24px" },
-            textTransform: "none",
-            padding: { xs: "8px 16px", md: "10px 20px" },
-            borderRadius: "20px",
-            "&:hover": {
-              backgroundColor: "#f0f0f0",
-            },
-          }}
-        >
-          VIEW CASE STUDIES
-        </Button>
-      </Stack>
+          <Typography
+            variant="h4"
+            sx={{
+              color: "#000000",
+              fontWeight: "bold",
+              marginBottom: "15px",
+              fontSize: { xs: "1.5rem", md: "2rem" },
+              whiteSpace: "normal",
+              overflowWrap: "break-word",
+            }}
+          >
+            Explore My Case Studies
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              color: "#000000",
+              marginBottom: "20px",
+              fontSize: { xs: "0.9rem", md: "1rem" },
+              whiteSpace: "normal",
+              overflowWrap: "break-word",
+            }}
+          >
+            Discover how I build scalable and efficient applications, solve
+            complex problems, and create intuitive user experiences.
+          </Typography>
+          <Button
+            variant="contained"
+            component={motion.button}
+            whileHover={{ scale: 1.05 }}
+            sx={{
+              backgroundColor: "#000000",
+              color: "#FFFFFF",
+              fontWeight: "bold",
+              fontSize: { xs: "16px", sm: "20px", md: "24px" },
+              textTransform: "none",
+              padding: { xs: "8px 16px", md: "10px 20px" },
+              borderRadius: "20px",
+              "&:hover": {
+                backgroundColor: "#333333",
+              },
+            }}
+          >
+            VIEW CASE STUDIES
+          </Button>
+        </Stack>
+      </Box>
     </Stack>
   );
 };

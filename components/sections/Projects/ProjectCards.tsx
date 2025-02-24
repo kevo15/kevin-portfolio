@@ -23,14 +23,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     <Card
       sx={{
         width: "100%",
-        maxWidth: "1200px",
-        p: "2rem",
-        mb: "2rem",
+        maxWidth: "900px",
+        p: "30px",
+        mb: "40px",
         display: "flex",
         flexDirection: "column",
-        gap: "2rem",
-        backgroundColor: "#424242",
+        gap: "20px",
+        backgroundColor: "rgba(66, 66, 66, 0.7)",
         boxShadow: "0 6px 12px rgba(0, 0, 0, 0.2)",
+        ...(reversed ? { ml: "auto" } : { mr: "auto" }),
       }}
     >
       <Stack direction="row" alignItems="center" justifyContent="space-between">
@@ -39,7 +40,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             backgroundColor: "#000000",
             borderRadius: "48px",
             padding: "10px 20px",
-            mb: "30px",
+            mb: "20px",
             boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
             textAlign: "center",
             display: "inline-block",
@@ -60,8 +61,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         </Box>
         <Box
           sx={{
-            width: "120px",
-            ml: "2rem",
+            width: "100px",
+            ml: "20px",
             borderRadius: "8px",
             overflow: "hidden",
           }}
@@ -69,8 +70,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           <Image
             src={personalLogo}
             alt="Personal Logo"
-            width={120}
-            height={120}
+            width={100}
+            height={100}
             style={{ objectFit: "cover" }}
           />
         </Box>
@@ -83,12 +84,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         }}
         alignItems="center"
         justifyContent="space-between"
-        spacing={{ xs: 4, md: 0 }}
+        spacing={{ xs: 3, md: 0 }}
       >
         <Box
           sx={{
             flexShrink: 0,
-            maxWidth: "350px",
+            maxWidth: "400px",
             textAlign: "center",
           }}
         >
@@ -100,7 +101,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           >
             <Box
               sx={{
-                width: "250px",
+                width: "400px",
                 borderRadius: "8px",
                 overflow: "hidden",
               }}
@@ -108,15 +109,22 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               <Image
                 src={projectLogo}
                 alt={`${projectTitle} Logo`}
-                width={250}
-                height={200}
+                width={400}
+                height={300}
                 style={{ objectFit: "contain" }}
               />
             </Box>
           </Link>
         </Box>
 
-        <Stack spacing="50px" sx={{ maxWidth: "500px", textAlign: "center" }}>
+        <Stack
+          spacing="30px"
+          sx={{
+            maxWidth: "500px",
+            textAlign: "center",
+          }}
+          alignItems="center"
+        >
           <Typography
             component="p"
             sx={{ fontSize: "1.25rem", lineHeight: 1.6, m: 0, color: "#fff" }}
@@ -130,13 +138,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             sx={{
               display: "inline-block",
               backgroundColor: "white",
-              width: "200px",
+              width: "180px",
               color: "#0A1128",
               fontWeight: "bold",
-              fontSize: "20px",
+              fontSize: "18px",
               textTransform: "none",
-              py: "10px",
-              px: "20px",
+              py: "8px",
+              px: "16px",
               borderRadius: "20px",
               textAlign: "center",
               textDecoration: "none",
