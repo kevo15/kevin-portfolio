@@ -19,10 +19,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Kevin's Portfolio</title>
+        <title>Kevin&apos;s Portfolio</title>
         <meta
           name="description"
-          content="Welcome to Kevin's professional portfolio"
+          content="Welcome to Kevin&apos;s professional portfolio"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/me.png" />
@@ -34,7 +34,7 @@ export default function Home() {
           <About />
         </main>
         <footer className="footer">
-          <p>© {new Date().getFullYear()} Kevin's Portfolio</p>
+          <p>© {new Date().getFullYear()} Kevin&apos;s Portfolio</p>
         </footer>
       </div>
     </>
