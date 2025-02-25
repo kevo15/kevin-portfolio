@@ -8,6 +8,9 @@ import {
   Card,
   useTheme,
   useMediaQuery,
+  List,
+  ListItem,
+  ListItemText,
 } from "@mui/material";
 import caseStudies from "../../../components/sections/CaseStudies/caseStudyData";
 
@@ -41,14 +44,32 @@ const CaseStudyDetail: React.FC = () => {
           </Typography>
         </Box>
       ),
+      center: false,
     },
     {
       title: "Contributions",
       content: (
-        <Typography variant="body1" sx={{ color: "#000" }}>
-          {study.contributions}
-        </Typography>
+        <Box sx={{ textAlign: "left" }}>
+          {study.contributions.map((contrib, index) => (
+            <Box key={index} sx={{ mb: 2 }}>
+              <Typography
+                variant="h6"
+                sx={{ color: "#000", fontWeight: "bold" }}
+              >
+                {contrib.title}
+              </Typography>
+              <List>
+                {contrib.details.map((detail, idx) => (
+                  <ListItem key={idx} sx={{ py: 0 }}>
+                    <ListItemText primary={detail} />
+                  </ListItem>
+                ))}
+              </List>
+            </Box>
+          ))}
+        </Box>
       ),
+      center: false,
     },
     {
       title: "Tech Stack",
@@ -57,6 +78,7 @@ const CaseStudyDetail: React.FC = () => {
           {study.techStack.join(", ")}
         </Typography>
       ),
+      center: true,
     },
     {
       title: "Tools Used",
@@ -65,14 +87,51 @@ const CaseStudyDetail: React.FC = () => {
           {study.toolsUsed.join(", ")}
         </Typography>
       ),
+      center: true,
     },
     {
       title: "Challenges and Solutions",
       content: (
-        <Typography variant="body1" sx={{ color: "#000" }}>
-          {study.challengesAndSolutions}
-        </Typography>
+        <Box sx={{ textAlign: "left" }}>
+          {study.challengesAndSolutions.map((challenge, index) => (
+            <Box key={index} sx={{ mb: 2 }}>
+              <Typography
+                variant="h6"
+                sx={{ color: "#000", fontWeight: "bold" }}
+              >
+                {challenge.title}
+              </Typography>
+              <Typography
+                variant="subtitle1"
+                sx={{ color: "#000", fontWeight: "bold" }}
+              >
+                Problems:
+              </Typography>
+              <List>
+                {challenge.problem.map((p, idx) => (
+                  <ListItem key={idx} sx={{ py: 0 }}>
+                    <ListItemText primary={p} />
+                  </ListItem>
+                ))}
+              </List>
+              <Typography
+                variant="subtitle1"
+                sx={{ color: "#000", fontWeight: "bold" }}
+              >
+                Solutions:
+              </Typography>
+              <List>
+                {challenge.solution.map((s, idx) => (
+                  <ListItem key={idx} sx={{ py: 0 }}>
+                    <ListItemText primary={s} />
+                  </ListItem>
+                ))}
+              </List>
+            </Box>
+          ))}
+        </Box>
       ),
+      center: false,
     },
     {
       title: "Results and Impact",
@@ -81,6 +140,7 @@ const CaseStudyDetail: React.FC = () => {
           {study.resultsAndImpact}
         </Typography>
       ),
+      center: true,
     },
     {
       title: "Key Takeaways & Future Improvements",
@@ -89,6 +149,7 @@ const CaseStudyDetail: React.FC = () => {
           {study.keyTakeawaysAndFutureImprovements}
         </Typography>
       ),
+      center: true,
     },
     {
       title: "Conclusion",
@@ -97,6 +158,7 @@ const CaseStudyDetail: React.FC = () => {
           {study.conclusion}
         </Typography>
       ),
+      center: true,
     },
   ];
 
@@ -114,7 +176,12 @@ const CaseStudyDetail: React.FC = () => {
         >
           <Typography
             variant={isMobile ? "h4" : "h3"}
-            sx={{ color: "#000", m: 0, textAlign: "center" }}
+            sx={{
+              color: "#000",
+              m: 0,
+              textAlign: "center",
+              fontWeight: "bold",
+            }}
           >
             {study.title}
           </Typography>
@@ -146,9 +213,13 @@ const CaseStudyDetail: React.FC = () => {
                   : "rgba(211,211,211,0.8)",
               color: "#000",
               borderRadius: "16px",
+              textAlign: section.center ? "center" : "left",
             }}
           >
-            <Typography variant="h5" sx={{ mb: 1, textAlign: "center" }}>
+            <Typography
+              variant="h5"
+              sx={{ mb: 1, textAlign: "center", fontWeight: "bold" }}
+            >
               {section.title}
             </Typography>
             {section.content}
