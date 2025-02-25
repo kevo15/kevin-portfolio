@@ -96,6 +96,7 @@ const ProjectsPage: React.FC = () => {
               personalLogo={project.personalLogo}
               projectLink={project.projectLink}
               reversed={project.reversed}
+              buttonText={project.buttonText}
             />
           ))}
         </main>

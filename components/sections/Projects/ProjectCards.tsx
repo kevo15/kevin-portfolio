@@ -17,6 +17,7 @@ interface ProjectCardProps {
   personalLogo: string;
   projectLink: string;
   reversed?: boolean;
+  buttonText: string;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -26,6 +27,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   personalLogo,
   projectLink,
   reversed = false,
+  buttonText,
 }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -165,7 +167,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             sx={{
               display: "inline-block",
               backgroundColor: "white",
-              width: isMobile ? "140px" : "180px",
+              width: isMobile ? "160px" : "200px",
               color: "#0A1128",
               fontWeight: "bold",
               fontSize: isMobile ? "14px" : "18px",
@@ -183,7 +185,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               },
             }}
           >
-            GO TO SITE
+            {buttonText}
           </Link>
         </Stack>
       </Stack>

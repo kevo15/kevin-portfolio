@@ -41,7 +41,7 @@ const ContactFooter = () => {
           k.z.marks15@gmail.com
         </a>
         <a
-          href="https://www.linkedin.com/in/yourprofile"
+          href="https://www.linkedin.com/in/aboutkevinmarks"
           target="_blank"
           rel="noopener noreferrer"
           className="contact-link"
