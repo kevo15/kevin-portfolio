@@ -2,6 +2,7 @@ interface CaseStudy {
   id: string;
   title: string;
   logo: string;
+  background: string;
   overview: {
     missionStatement: string;
     targetAudience: string;
@@ -27,6 +28,7 @@ const caseStudies: CaseStudy[] = [
     id: "premierleaf-wellness-app-case-study",
     title: "Premier Leaf Wellness App",
     logo: "/premierleaf.png",
+    background: "#103831",
     overview: {
       missionStatement:
         "Helping busy professionals beat burnout, prioritize self-care, and reclaim their energy—all in less than 15 minutes a day.",
@@ -99,9 +101,80 @@ const caseStudies: CaseStudy[] = [
       "The PremierLeaf Wellness Mobile App project provided extensive experience in full-stack mobile development, collaborative teamwork, and feature-driven implementation. By integrating modern technologies and ensuring scalability, the project highlights technical proficiency, innovative problem-solving skills, and the ability to deliver robust, user-centric solutions in a fast-paced environment.",
   },
   {
+    id: "politimap-case-study",
+    title: "Senior Design Project Politimap",
+    logo: "/politimap.png",
+    background: "#25324dff",
+    overview: {
+      missionStatement:
+        "Empowering citizens to search, learn about, and engage with politicians—bringing clarity and transparency to political participation.",
+      targetAudience:
+        "Civic-minded citizens, active voters, community organizers, educators, and journalists who are eager to gain detailed insights into political figures and enhance local political transparency and engagement.",
+    },
+    contributions: [
+      {
+        title: "UI Design",
+        details: [
+          "Conceptualized and implemented a professional, user-friendly login screen based on high-fidelity designs from Uizard, ensuring responsive design across devices.",
+          "Developed a visually engaging search interface from Uizard mockups, incorporating iterative feedback and usability testing to enhance overall user experience.",
+        ],
+      },
+      {
+        title: "Search Query and Implementation",
+        details: [
+          "Engineered comprehensive MongoDB queries to accurately pull detailed political profiles, ensuring optimal data retrieval performance.",
+          "Implemented robust filtering mechanisms that seamlessly integrate with the queries, allowing users to fine-tune search results.",
+        ],
+      },
+    ],
+    techStack: [
+      "React Native",
+      "Firebase",
+      "MongoDB",
+      "Python",
+      "SpaCy",
+      "Open AI",
+      "LLaMA",
+    ],
+    toolsUsed: ["Slack", "GitHub", "Jira", "Uizard"],
+    challengesAndSolutions: [
+      {
+        title: "Dynamic Data Extraction",
+        problem: [
+          "Identifying a suitable tool for robust data extraction and processing.",
+          "Rapidly acquiring the necessary skills to effectively utilize the chosen tool.",
+          "Seamlessly integrating the tool with a MongoDB database to ensure accurate data retrieval.",
+        ],
+        solution: [
+          "Conducted thorough research on LLaMA, OpenAI, and SpaCy, ultimately selecting LLaMA as the optimal solution for our needs.",
+          "Utilized comprehensive documentation and community resources to quickly build proficiency and implement best practices.",
+          "Established a reliable connection to MongoDB, ensuring that dynamic data extraction was both efficient and scalable.",
+        ],
+      },
+      {
+        title: "Team Collaboration and Onboarding",
+        problem: [
+          "Adapting to a new tech stack while collaborating with a diverse team for the first time.",
+          "Coordinating effectively with team members to align on project goals and technical approaches.",
+        ],
+        solution: [
+          "Engaged in intensive learning and hands-on experimentation to quickly master the new technologies, while leveraging team workshops and code reviews for mutual support.",
+          "Implemented clear communication strategies and agile methodologies to streamline collaboration, ensuring that project milestones were met and technical challenges were resolved collectively.",
+        ],
+      },
+    ],
+    resultsAndImpact:
+      "The project is in its final development stages, with plans to deploy a beta version by mid-March 2025. This beta release will allow us to gather comprehensive user feedback, refine key features, and optimize system performance. By analyzing early user interactions and insights, we aim to implement data-driven improvements to ensure the final product is robust, user-centric, and ready for market adoption.",
+    keyTakeawaysAndFutureImprovements:
+      "Enhanced teamwork and communication skills through collaborative project work and exposure to new technologies such as React Native, Jira, SpaCy, and MongoDB. This experience reinforced the value of team projects during school, leading to increased contributions across multiple initiatives. Future improvements will focus on integrating user feedback to refine the app, with the goal of presenting a polished senior design project by the end of the semester.",
+    conclusion:
+      "Politimap has provided a significant learning experience, substantially enhancing my technical skills and deepening my passion for coding. The project has not only refined my ability to work with modern technologies and frameworks but also reinforced the value of collaboration and continuous improvement in software development.",
+  },
+  {
     id: "my-portfolio-case-study",
     title: "My Personal Portfolio",
     logo: "/me.png",
+    background: "#000000",
     overview: {
       missionStatement:
         "Showcasing innovative web apps that simplify complexity and spark creativity.",
@@ -175,75 +248,6 @@ const caseStudies: CaseStudy[] = [
       "Key takeaways from this project include the critical importance of modular design and the opportunity to deepen my expertise in Next.js and Material UI. I gained valuable insights into building engaging, user-friendly minigames and refined my skills in planning effective webpage layouts. Looking ahead, I plan to incorporate additional projects into my portfolio as I continue to learn and innovate, further optimizing system performance and enhancing the overall user experience.",
     conclusion:
       "My personal portfolio exemplifies my commitment to tackling complex challenges with innovative solutions. Leveraging Next.js and Material UI, I built a responsive platform that balances creativity and performance. This project honed my skills in modular design, time management, and agile development, fueling my continuous drive for excellence as I expand my portfolio.",
-  },
-  {
-    id: "politimap-case-study",
-    title: "Senior Design Project Politimap",
-    logo: "/politimap.png",
-    overview: {
-      missionStatement:
-        "Empowering citizens to search, learn about, and engage with politicians—bringing clarity and transparency to political participation.",
-      targetAudience:
-        "Civic-minded citizens, active voters, community organizers, educators, and journalists who are eager to gain detailed insights into political figures and enhance local political transparency and engagement.",
-    },
-    contributions: [
-      {
-        title: "UI Design",
-        details: [
-          "Conceptualized and implemented a professional, user-friendly login screen based on high-fidelity designs from Uizard, ensuring responsive design across devices.",
-          "Developed a visually engaging search interface from Uizard mockups, incorporating iterative feedback and usability testing to enhance overall user experience.",
-        ],
-      },
-      {
-        title: "Search Query and Implementation",
-        details: [
-          "Engineered comprehensive MongoDB queries to accurately pull detailed political profiles, ensuring optimal data retrieval performance.",
-          "Implemented robust filtering mechanisms that seamlessly integrate with the queries, allowing users to fine-tune search results.",
-        ],
-      },
-    ],
-    techStack: [
-      "React Native",
-      "Firebase",
-      "MongoDB",
-      "Python",
-      "SpaCy",
-      "Open AI",
-      "LLaMA",
-    ],
-    toolsUsed: ["Slack", "GitHub", "Jira", "Uizard"],
-    challengesAndSolutions: [
-      {
-        title: "Dynamic Data Extraction",
-        problem: [
-          "Identifying a suitable tool for robust data extraction and processing.",
-          "Rapidly acquiring the necessary skills to effectively utilize the chosen tool.",
-          "Seamlessly integrating the tool with a MongoDB database to ensure accurate data retrieval.",
-        ],
-        solution: [
-          "Conducted thorough research on LLaMA, OpenAI, and SpaCy, ultimately selecting LLaMA as the optimal solution for our needs.",
-          "Utilized comprehensive documentation and community resources to quickly build proficiency and implement best practices.",
-          "Established a reliable connection to MongoDB, ensuring that dynamic data extraction was both efficient and scalable.",
-        ],
-      },
-      {
-        title: "Team Collaboration and Onboarding",
-        problem: [
-          "Adapting to a new tech stack while collaborating with a diverse team for the first time.",
-          "Coordinating effectively with team members to align on project goals and technical approaches.",
-        ],
-        solution: [
-          "Engaged in intensive learning and hands-on experimentation to quickly master the new technologies, while leveraging team workshops and code reviews for mutual support.",
-          "Implemented clear communication strategies and agile methodologies to streamline collaboration, ensuring that project milestones were met and technical challenges were resolved collectively.",
-        ],
-      },
-    ],
-    resultsAndImpact:
-      "The project is in its final development stages, with plans to deploy a beta version by mid-March 2025. This beta release will allow us to gather comprehensive user feedback, refine key features, and optimize system performance. By analyzing early user interactions and insights, we aim to implement data-driven improvements to ensure the final product is robust, user-centric, and ready for market adoption.",
-    keyTakeawaysAndFutureImprovements:
-      "Enhanced teamwork and communication skills through collaborative project work and exposure to new technologies such as React Native, Jira, SpaCy, and MongoDB. This experience reinforced the value of team projects during school, leading to increased contributions across multiple initiatives. Future improvements will focus on integrating user feedback to refine the app, with the goal of presenting a polished senior design project by the end of the semester.",
-    conclusion:
-      "Politimap has provided a significant learning experience, substantially enhancing my technical skills and deepening my passion for coding. The project has not only refined my ability to work with modern technologies and frameworks but also reinforced the value of collaboration and continuous improvement in software development.",
   },
 ];
 

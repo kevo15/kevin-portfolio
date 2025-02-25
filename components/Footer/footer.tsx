@@ -40,6 +40,7 @@ const ContactFooter = () => {
         <a href="mailto:k.z.marks15@gmail.com" className="contact-link">
           k.z.marks15@gmail.com
         </a>
+        <p className="contact-link">409.504.3701</p>
         <a
           href="https://www.linkedin.com/in/aboutkevinmarks"
           target="_blank"

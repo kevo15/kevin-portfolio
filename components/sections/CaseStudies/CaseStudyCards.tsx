@@ -17,69 +17,148 @@ const CaseStudyCards: React.FC = () => {
 
   return (
     <Stack spacing={8} alignItems="center">
-      {caseStudies.map((study, index) => {
-        const flexDirection = isMobile
-          ? "column"
-          : index % 2 === 0
-            ? "row"
-            : "row-reverse";
-        const backgroundColor =
-          index % 2 === 0 ? "rgba(66,66,66,0.7)" : "rgba(255,255,255,0.8)";
-        const textColor = index % 2 === 0 ? "#FFFFFF" : "#333";
-
-        return (
-          <Link
-            key={study.id || index}
-            href={`/caseStudies/${study.id || index}`}
-            passHref
+      {caseStudies.map((study, index) => (
+        <Link
+          key={study.id || index}
+          href={`/caseStudies/${study.id || index}`}
+          passHref
+        >
+          <Card
+            sx={{
+              position: "relative",
+              width: isMobile ? "350px" : "800px",
+              height: isMobile ? "150px" : "300px",
+              backgroundColor: "transparent",
+              display: "flex",
+              flexDirection: isMobile ? "row" : "column",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+              overflow: "hidden",
+              "&:hover .overlay": !isMobile ? { opacity: 1 } : {},
+            }}
           >
-            <Card
+            <Box
               sx={{
+                position: "absolute",
+                top: 0,
+                left: 0,
                 width: "100%",
-                maxWidth: "900px",
-                p: "30px",
+                height: "100%",
+                backgroundColor: study.background,
+                opacity: 0.75,
+                zIndex: 1,
+              }}
+            />
+
+            <Box
+              sx={{
+                width: isMobile ? "30%" : "250px",
+                transition: "filter 0.3s",
+                zIndex: 2,
+                "&:hover": !isMobile ? { filter: "brightness(0.7)" } : {},
                 display: "flex",
-                flexDirection: flexDirection,
                 alignItems: "center",
-                gap: "20px",
-                backgroundColor: backgroundColor,
-                boxShadow: "0 6px 12px rgba(0, 0, 0, 0.2)",
-                cursor: "pointer",
-                transition: "transform 0.2s",
-                "&:hover": {
-                  transform: "scale(1.02)",
-                },
+                justifyContent: "center",
+                pl: isMobile ? 2 : 0,
               }}
             >
+              <Image
+                src={study.logo}
+                alt={`${study.title} Logo`}
+                width={250}
+                height={150}
+                style={{
+                  objectFit: "contain",
+                  width: "100%",
+                  height: "auto",
+                }}
+              />
+            </Box>
+
+            {isMobile ? (
               <Box
                 sx={{
-                  width: isMobile ? "80%" : "200px",
-                  mr: isMobile ? 0 : index % 2 === 0 ? 2 : 0,
-                  ml: isMobile ? 0 : index % 2 === 0 ? 0 : 2,
+                  ml: 2,
+                  zIndex: 2,
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  textAlign: "center",
+                  flex: 1,
                 }}
               >
-                <Image
-                  src={study.logo}
-                  alt={`${study.title} Logo`}
-                  width={200}
-                  height={150}
-                  style={{
-                    objectFit: "contain",
-                    width: "100%",
-                    height: "auto",
+                <Typography
+                  variant="caption"
+                  sx={{
+                    color: "#fff",
+                    mb: 1,
+                    fontSize: "0.7rem",
                   }}
-                />
+                >
+                  {study.overview.missionStatement}
+                </Typography>
+                <Typography
+                  variant="caption"
+                  sx={{
+                    backgroundColor: "#fff",
+                    color: study.background,
+                    p: "4px 8px 4px 8px",
+                    borderRadius: 1,
+                    display: "inline-block",
+                    fontSize: "0.7rem",
+                  }}
+                >
+                  View Case Study
+                </Typography>
               </Box>
-              <Typography
-                variant={isMobile ? "h4" : "h3"}
-                sx={{ color: textColor, textAlign: "center" }}
+            ) : (
+              <Box
+                className="overlay"
+                sx={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backgroundColor: "rgba(0, 0, 0, 0.5)",
+                  color: "#fff",
+                  opacity: 0,
+                  transition: "opacity 0.3s",
+                  px: 2,
+                  textAlign: "center",
+                  zIndex: 3,
+                }}
               >
-                {study.title}
-              </Typography>
-            </Card>
-          </Link>
-        );
-      })}
+                <Typography
+                  variant="h3"
+                  sx={{ mb: 1, fontSize: "1.5rem", lineHeight: 1.4 }}
+                >
+                  {study.overview.missionStatement}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    backgroundColor: "#fff",
+                    color: study.background,
+                    p: "6px 12px",
+                    borderRadius: 5,
+                    display: "inline-block",
+                    fontWeight: 500,
+                  }}
+                >
+                  View Case Study
+                </Typography>
+              </Box>
+            )}
+          </Card>
+        </Link>
+      ))}
     </Stack>
   );
 };
