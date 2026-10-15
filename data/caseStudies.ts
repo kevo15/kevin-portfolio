@@ -164,9 +164,9 @@ const caseStudies: CaseStudy[] = [
       },
     ],
     resultsAndImpact:
-      "The project is in its final development stages, with plans to deploy a beta version by mid-March 2025. This beta release will allow us to gather comprehensive user feedback, refine key features, and optimize system performance. By analyzing early user interactions and insights, we aim to implement data-driven improvements to ensure the final product is robust, user-centric, and ready for market adoption.",
+      "PolitiMap has since been sidelined by the project lead and is not in active development. It's included here to highlight the experience I gained building it: a secure, validated login flow, optimized MongoDB/Mongoose queries and indexes, and real-time search APIs that delivered instant results.",
     keyTakeawaysAndFutureImprovements:
-      "Enhanced teamwork and communication skills through collaborative project work and exposure to new technologies such as React Native, Jira, SpaCy, and MongoDB. This experience reinforced the value of team projects during school, leading to increased contributions across multiple initiatives. Future improvements will focus on integrating user feedback to refine the app, with the goal of presenting a polished senior design project by the end of the semester.",
+      "Enhanced teamwork and communication skills through collaborative project work and exposure to new technologies such as React Native, Jira, SpaCy, and MongoDB. This experience reinforced the value of team projects during school, leading to increased contributions across multiple initiatives, and the search and authentication work carried directly into my later full-stack projects.",
     conclusion:
       "Politimap has provided a significant learning experience, substantially enhancing my technical skills and deepening my passion for coding. The project has not only refined my ability to work with modern technologies and frameworks but also reinforced the value of collaboration and continuous improvement in software development.",
   },
