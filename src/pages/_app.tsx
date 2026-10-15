@@ -1,48 +1,58 @@
-"use client";
 import type { AppProps } from "next/app";
+import Head from "next/head";
+import { Poppins, Inter } from "next/font/google";
+import { AppCacheProvider } from "@mui/material-nextjs/v15-pagesRouter";
+import { Box, CssBaseline, GlobalStyles, ThemeProvider } from "@mui/material";
 import "@/styles/globals.css";
-import { useState } from "react";
-import Sidebar from "../../components/Navbar/Sidebar";
-import FlowingWavesBackground from "../../components/waves";
-import { useRouter } from "next/router";
-import ContactFooter from "../../components/Footer/footer";
+import theme from "@/theme";
+import Navbar from "../../components/layout/Navbar";
+import Footer from "../../components/layout/Footer";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  const router = useRouter();
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+const heading = Poppins({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+});
 
-  const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
-  const closeSidebar = () => setIsSidebarOpen(false);
+const body = Inter({
+  subsets: ["latin"],
+});
 
-  const showWaves = router.pathname !== "/caseStudies/[id]";
+function MyApp(props: AppProps) {
+  const { Component, pageProps } = props;
 
   return (
-    <>
-      {showWaves && <FlowingWavesBackground />}
-
-      <button
-        className={`hamburger-btn ${
-          isSidebarOpen ? "hamburger-btn-open" : "hamburger-btn-closed"
-        }`}
-        onClick={toggleSidebar}
-      >
-        {isSidebarOpen ? "✕" : "☰"}
-      </button>
-
-      <Sidebar isOpen={isSidebarOpen} onNavigate={closeSidebar} />
-
-      <div
-        style={{
-          padding: "20px",
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
-        <Component {...pageProps} />
-      </div>
-
-      <ContactFooter />
-    </>
+    <AppCacheProvider {...props}>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/headshot.png" />
+      </Head>
+      <ThemeProvider theme={theme}>
+        <CssBaseline enableColorScheme />
+        {/* Font variables live on :root so portalled UI (drawers, menus) gets them too. */}
+        <GlobalStyles
+          styles={{
+            ":root": {
+              "--font-heading": heading.style.fontFamily,
+              "--font-body": body.style.fontFamily,
+            },
+          }}
+        />
+        <Box
+          sx={{
+            minHeight: "100vh",
+            display: "flex",
+            flexDirection: "column",
+            fontFamily: "var(--font-body)",
+          }}
+        >
+          <Navbar />
+          <Box component="main" sx={{ flex: 1 }}>
+            <Component {...pageProps} />
+          </Box>
+          <Footer />
+        </Box>
+      </ThemeProvider>
+    </AppCacheProvider>
   );
 }
 

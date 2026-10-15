@@ -1,4 +1,4 @@
-interface CaseStudy {
+export interface CaseStudy {
   id: string;
   title: string;
   logo: string;
@@ -173,7 +173,7 @@ const caseStudies: CaseStudy[] = [
   {
     id: "my-portfolio-case-study",
     title: "My Personal Portfolio",
-    logo: "/me.png",
+    logo: "/kevinmarkslogo.png",
     background: "#000000",
     overview: {
       missionStatement:
