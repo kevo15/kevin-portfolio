@@ -4,6 +4,7 @@ import { Box, Container, IconButton, Link, Stack, Typography } from "@mui/materi
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { navLinks, site } from "../../data/site";
+import { games } from "../../data/games";
 
 export const socialLinks = [
   { label: "Email", href: `mailto:${site.email}`, Icon: MdEmail },
@@ -84,12 +85,31 @@ const Footer: React.FC = () => (
         </Stack>
       </Stack>
 
-      <Typography
-        variant="body2"
-        sx={{ color: "text.secondary", mt: 4, fontSize: "0.825rem" }}
+      <Stack
+        direction={{ xs: "column", sm: "row" }}
+        spacing={{ xs: 1, sm: 3 }}
+        sx={{ mt: 4, justifyContent: "space-between" }}
       >
-        © {new Date().getFullYear()} {site.name}. Built with Next.js and Material UI.
-      </Typography>
+        <Typography variant="body2" sx={{ color: "text.secondary", fontSize: "0.825rem" }}>
+          © {new Date().getFullYear()} {site.name}. Built with Next.js and Material UI.
+        </Typography>
+        {games.map((game) => (
+          <Typography
+            key={game.slug}
+            variant="body2"
+            sx={{ color: "text.secondary", fontSize: "0.825rem" }}
+          >
+            {game.title}:{" "}
+            <Link href={game.privacyUrl} target="_blank" rel="noopener noreferrer" color="inherit">
+              Privacy
+            </Link>{" "}
+            ·{" "}
+            <Link href={game.termsUrl} target="_blank" rel="noopener noreferrer" color="inherit">
+              Terms
+            </Link>
+          </Typography>
+        ))}
+      </Stack>
     </Container>
   </Box>
 );

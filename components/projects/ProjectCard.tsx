@@ -18,8 +18,18 @@ const initials = (title: string) =>
     .join("");
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
-  const { title, summary, image, imageBg, tags, caseStudy, liveUrl, repoUrl } =
-    project;
+  const {
+    title,
+    summary,
+    image,
+    imageBg,
+    imageCover,
+    tags,
+    caseStudy,
+    caseStudyLabel = "Case study",
+    liveUrl,
+    repoUrl,
+  } = project;
 
   return (
     <SurfaceCard interactive sx={{ display: "flex", flexDirection: "column" }}>
@@ -38,7 +48,15 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
           }),
         }}
       >
-        {image ? (
+        {image && imageCover ? (
+          <Image
+            src={image}
+            alt={`${title} artwork`}
+            fill
+            sizes="(min-width: 900px) 400px, (min-width: 600px) 50vw, 100vw"
+            style={{ objectFit: "cover" }}
+          />
+        ) : image ? (
           <Image
             src={image}
             alt={`${title} logo`}
@@ -79,7 +97,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
               variant="contained"
               endIcon={<ArrowForwardRoundedIcon />}
             >
-              Case study
+              {caseStudyLabel}
             </Button>
           )}
           {liveUrl && (

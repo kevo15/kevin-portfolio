@@ -4,15 +4,30 @@ export interface Project {
   summary: string;
   image?: string;
   imageBg?: string;
+  /** Fill the card's image area instead of centering a logo in it. */
+  imageCover?: boolean;
   tags: string[];
   /** Internal case study route, if one exists. */
   caseStudy?: string;
+  /** Button label for the internal link; defaults to "Case study". */
+  caseStudyLabel?: string;
   liveUrl?: string;
   repoUrl?: string;
   featured?: boolean;
 }
 
 export const projects: Project[] = [
+  {
+    id: "shadow-sprinter",
+    title: "Shadow Sprinter",
+    summary:
+      "A mobile 2D action platformer with shadow-clone replay puzzles, physics-based movement, and enemy AI. 30 levels, now in closed beta on Google Play.",
+    image: "/games/shadow-sprinter/logo.png",
+    imageCover: true,
+    tags: ["React Native", "Expo", "Game Dev", "Google Play"],
+    caseStudy: "/games/shadow-sprinter",
+    caseStudyLabel: "Play the beta",
+  },
   {
     id: "premierleaf",
     title: "PremierLeaf Wellness Suite",

@@ -11,7 +11,6 @@ import SurfaceCard from "../../components/ui/SurfaceCard";
 import TagList from "../../components/ui/TagList";
 import Reveal from "../../components/ui/Reveal";
 import Timeline from "../../components/experience/Timeline";
-import SkillArcade from "../../components/arcade/SkillArcade";
 import { experience, education, certifications } from "../../data/experience";
 import { skillGroups } from "../../data/skills";
 import { site } from "../../data/site";
@@ -158,11 +157,6 @@ export default function ExperiencePage() {
           ))}
         </Grid>
 
-        <Box sx={{ mt: 6, display: { xs: "none", md: "block" } }}>
-          <Reveal>
-            <SkillArcade />
-          </Reveal>
-        </Box>
       </Section>
     </>
   );

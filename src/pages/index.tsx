@@ -4,17 +4,20 @@ import Image from "next/image";
 import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
-import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
+import SportsEsportsOutlinedIcon from "@mui/icons-material/SportsEsportsOutlined";
 import PageHead from "../../components/ui/PageHead";
 import Section from "../../components/ui/Section";
 import SurfaceCard from "../../components/ui/SurfaceCard";
 import Reveal from "../../components/ui/Reveal";
 import ProjectCard from "../../components/projects/ProjectCard";
+import PhoneVideo from "../../components/games/PhoneVideo";
+import TagList from "../../components/ui/TagList";
 import Timeline from "../../components/experience/Timeline";
 import { socialLinks } from "../../components/layout/Footer";
 import { projects } from "../../data/projects";
 import { experience, education, certifications } from "../../data/experience";
 import { site } from "../../data/site";
+import { games } from "../../data/games";
 
 const stats = [
   { value: "2+ yrs", label: "Professional software engineering" },
@@ -24,6 +27,7 @@ const stats = [
 
 export default function Home() {
   const featured = projects.filter((p) => p.featured);
+  const game = games[0];
 
   return (
     <>
@@ -81,14 +85,13 @@ export default function Home() {
                     View projects
                   </Button>
                   <Button
-                    href={site.resume}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    component={NextLink}
+                    href={`/games/${game.slug}`}
                     variant="outlined"
                     size="large"
-                    startIcon={<FileDownloadOutlinedIcon />}
+                    startIcon={<SportsEsportsOutlinedIcon />}
                   >
-                    Download résumé
+                    Play {game.title}
                   </Button>
                 </Stack>
               </Reveal>
@@ -148,6 +151,64 @@ export default function Home() {
           </Reveal>
         </Container>
       </Box>
+
+      {/* Featured game */}
+      <Section id="featured-game" sx={{ pt: { xs: 2, md: 4 } }}>
+        <Reveal>
+          <SurfaceCard
+            sx={{
+              p: { xs: 3, sm: 5, md: 7 },
+              background:
+                "radial-gradient(80% 120% at 100% 0%, rgba(211,47,47,0.22), transparent 60%), radial-gradient(70% 120% at 0% 100%, rgba(120,60,160,0.18), transparent 60%)",
+            }}
+          >
+            <Grid container spacing={{ xs: 5, md: 8 }} sx={{ alignItems: "center" }}>
+              <Grid size={{ xs: 12, md: 7 }}>
+                <Typography variant="overline" component="p" sx={{ color: "primary.main" }}>
+                  Featured game · {game.status}
+                </Typography>
+                <Typography variant="h2" component="h2" sx={{ mt: 1 }}>
+                  {game.title}
+                </Typography>
+                <Typography variant="subtitle1" sx={{ color: "text.secondary", mt: 2 }}>
+                  {game.tagline} I designed and built it as {game.studio}, and the 30-level
+                  beta is now open to Android testers on Google Play.
+                </Typography>
+                <Box sx={{ mt: 3 }}>
+                  <TagList tags={game.tech} />
+                </Box>
+                <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ mt: 4 }}>
+                  <Button
+                    component={NextLink}
+                    href={`/games/${game.slug}#beta`}
+                    variant="contained"
+                    size="large"
+                    endIcon={<ArrowForwardRoundedIcon />}
+                  >
+                    Join the beta
+                  </Button>
+                  <Button
+                    component={NextLink}
+                    href={`/games/${game.slug}`}
+                    variant="outlined"
+                    size="large"
+                  >
+                    About the game
+                  </Button>
+                </Stack>
+              </Grid>
+              <Grid size={{ xs: 12, md: 5 }}>
+                <PhoneVideo
+                  src={game.video}
+                  poster={game.poster}
+                  label={`${game.title} gameplay`}
+                  width={{ xs: 240, md: 270 }}
+                />
+              </Grid>
+            </Grid>
+          </SurfaceCard>
+        </Reveal>
+      </Section>
 
       {/* Selected projects */}
       <Section
