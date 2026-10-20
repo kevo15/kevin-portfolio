@@ -12,7 +12,7 @@ export default function GamesPage() {
     <>
       <PageHead
         title="Games"
-        description="Games by Kevin Marks (KmGameForge), including Shadow Sprinter, a 2D action platformer in closed beta on Google Play."
+        description="Games by Kevin Marks (KmGameForge), including Shadow Sprinter, a 2D action platformer in beta on Android and iOS."
         image={games[0]?.logo}
       />
       <Section

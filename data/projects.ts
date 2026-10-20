@@ -21,10 +21,10 @@ export const projects: Project[] = [
     id: "shadow-sprinter",
     title: "Shadow Sprinter",
     summary:
-      "A mobile 2D action platformer with shadow-clone replay puzzles, physics-based movement, and enemy AI. 30 levels, now in closed beta on Google Play.",
+      "A mobile 2D action platformer with shadow-clone replay puzzles, physics-based movement, and enemy AI. 30 levels, now in beta on Android and iOS.",
     image: "/games/shadow-sprinter/logo.png",
     imageCover: true,
-    tags: ["React Native", "Expo", "Game Dev", "Google Play"],
+    tags: ["React Native", "Expo", "Game Dev", "Google Play", "TestFlight"],
     caseStudy: "/games/shadow-sprinter",
     caseStudyLabel: "Play the beta",
   },
