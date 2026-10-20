@@ -172,7 +172,7 @@ export default function Home() {
                 </Typography>
                 <Typography variant="subtitle1" sx={{ color: "text.secondary", mt: 2 }}>
                   {game.tagline} I designed and built it as {game.studio}, and the 30-level
-                  beta is now open to Android testers on Google Play.
+                  beta is now open to testers on Android and iOS.
                 </Typography>
                 <Box sx={{ mt: 3 }}>
                   <TagList tags={game.tech} />

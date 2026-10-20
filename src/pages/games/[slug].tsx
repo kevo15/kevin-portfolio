@@ -169,7 +169,7 @@ export default function GamePage({ game }: { game: Game }) {
         id="beta"
         eyebrow="Beta testing"
         title={`Play ${game.title} early`}
-        intro="The beta is a closed test on Google Play. Join the tester group and you'll get access in two steps."
+        intro="The beta is open on Android through Google Play and on iPhone through TestFlight. Pick your platform and you'll be playing in two steps."
       >
         <Reveal>
           <BetaSteps game={game} />

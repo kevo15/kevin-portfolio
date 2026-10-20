@@ -12,6 +12,7 @@ export interface Game {
   features: { title: string; body: string }[];
   tech: string[];
   testerGroupUrl: string;
+  testFlightUrl: string;
   /** Leave empty until the production listing is live; the Play badge is hidden until then. */
   playStoreUrl: string;
   privacyUrl: string;
@@ -24,7 +25,7 @@ export const games: Game[] = [
     title: "Shadow Sprinter",
     studio: "KmGameForge",
     status: "Closed beta",
-    platforms: ["Android"],
+    platforms: ["Android", "iOS"],
     tagline:
       "Outrun your shadow in a 2D action platformer where your past moves become your allies.",
     description:
@@ -54,8 +55,9 @@ export const games: Game[] = [
         body: "Tight running and jumping with real-time collision detection and enemy AI.",
       },
     ],
-    tech: ["React Native", "Expo", "Google Play"],
+    tech: ["React Native", "Expo", "Google Play", "TestFlight"],
     testerGroupUrl: "https://groups.google.com/g/shadow-sprinter-testers",
+    testFlightUrl: "https://testflight.apple.com/join/FvddsttQ",
     playStoreUrl: "",
     privacyUrl: "https://kevo15.github.io/privacy.html",
     termsUrl: "https://kevo15.github.io/terms.html",
